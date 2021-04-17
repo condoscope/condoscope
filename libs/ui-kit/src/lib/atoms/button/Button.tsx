@@ -2,9 +2,9 @@ import React from 'react'
 import { FC, PropsWithChildren } from 'react'
 
 type Props = {
-  size: 'giant' | 'large' | 'medium' | 'small' | 'tiny'
-  status: 'basic' | 'primary' | 'success' | 'info' | 'warning' | 'danger'
-  appearance: 'filled' | 'outline' | 'ghost'
+  size?: 'giant' | 'large' | 'medium' | 'small' | 'tiny'
+  status?: 'basic' | 'primary' | 'success' | 'info' | 'warning' | 'danger'
+  appearance?: 'filled' | 'outline' | 'ghost'
 }
 
 export const Button: FC<Props> = (props: PropsWithChildren<Props>) => {
