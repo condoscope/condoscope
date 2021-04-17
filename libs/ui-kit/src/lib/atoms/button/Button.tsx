@@ -1,4 +1,5 @@
-import {FC, PropsWithChildren} from "react"
+import React from 'react'
+import { FC, PropsWithChildren } from 'react'
 
 type Props = {
   size: 'giant' | 'large' | 'medium' | 'small' | 'tiny'
@@ -9,11 +10,15 @@ type Props = {
 export const Button: FC<Props> = (props: PropsWithChildren<Props>) => {
   const { children } = props
 
-  return <button>{children}</button>
+  return (
+    <button>
+      {children}
+    </button>
+  )
 }
 
 Button.defaultProps = {
   appearance: 'filled',
   status: 'basic',
-  size: 'medium'
+  size: 'medium',
 }
