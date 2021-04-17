@@ -23,13 +23,138 @@
     },
     {
       "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nrwl/nx/typescript"],
-      "rules": {}
+      "plugins": [
+        "react",
+        "jsx-a11y",
+        "jest",
+        "react-hooks",
+        "import"
+      ],
+      "extends": [
+        "plugin:@nrwl/nx/typescript",
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:jsx-a11y/recommended",
+        "plugin:react-hooks/recommended"
+      ],
+      "parserOptions": { "project": "./tsconfig.*?.json" },
+      "rules": {
+        "semi": ["error", "never"],
+        "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0 }],
+        "no-multi-spaces": ["error"],
+        "object-curly-spacing": ["error", "always"],
+        "quotes": ["error", "single"],
+        "indent": ["error", 2],
+        "max-len": [
+          "error",
+          {
+            "code": 140,
+            "ignoreComments": true,
+            "ignoreUrls": true,
+            "ignoreTrailingComments": true,
+            "ignoreStrings": true,
+            "ignoreTemplateLiterals": true,
+            "ignoreRegExpLiterals": true
+          }
+        ],
+        "no-restricted-imports": ["error", {"patterns": ["*.test", "*.spec"]}],
+        "no-empty": "error",
+        "no-unused-vars": "off",
+        "no-plusplus": [
+          "error",
+          {
+            "allowForLoopAfterthoughts": true
+          }
+        ],
+        "curly": [
+          "error",
+          "all"
+        ],
+        "lines-between-class-members": [
+          "error",
+          "always",
+          {
+            "exceptAfterSingleLine": true
+          }
+        ],
+        "newline-after-var": "error",
+        "padding-line-between-statements": ["error", { "blankLine": "always", "prev": "*", "next": "return" }],
+        "function-call-argument-newline": ["error", "consistent"],
+        "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
+        "comma-spacing": ["error", {"before": false, "after": true}],
+        "no-trailing-spaces": "error",
+
+        "@typescript-eslint/explicit-module-boundary-types": ["error"],
+        "@typescript-eslint/no-explicit-any": ["error"],
+        "@typescript-eslint/semi": ["error", "never"],
+        "@typescript-eslint/comma-dangle": ["error", "always-multiline"],
+        "@typescript-eslint/no-unused-vars": ["error", {
+          "args": "all",
+          "argsIgnorePattern": "^_"
+        }],
+        "@typescript-eslint/member-delimiter-style": ["error", {
+          "multiline": {
+            "delimiter": "none"
+          }
+        }],
+
+        "react/jsx-tag-spacing": ["error", {
+          "beforeClosing": "allow",
+          "closingSlash": "never",
+          "afterOpening": "never"
+        }],
+        "react/jsx-wrap-multilines": ["error", {
+          "return": "parens-new-line"
+        }],
+        "react/jsx-indent": ["error", 2, { "checkAttributes": true, "indentLogicalExpressions": true }],
+        "react/jsx-max-props-per-line": ["error", { "maximum": 1, "when": "multiline" }],
+        "react/jsx-closing-bracket-location": ["error", "tag-aligned"],
+        "react/self-closing-comp": ["error", { "component": true, "html": true }],
+        "react/no-multi-comp": "error",
+        "react/prefer-stateless-function": "error",
+        "react/boolean-prop-naming": ["error", {"rule": "^(is|has)[A-Z]([A-Za-z0-9]?)+"}],
+        "react/jsx-max-depth": ["error", {"max": 8}],
+        "react/jsx-boolean-value": ["error", "never"],
+        "react/jsx-key": "error",
+        "react/jsx-one-expression-per-line": "error",
+
+        "import/no-default-export": "error",
+        "import/no-internal-modules": ["error", {
+          "allow": ["react-test-renderer/*"]
+        }],
+        "import/order": ["error", {
+          "groups": ["builtin", "external", "internal", "sibling"],
+          "newlines-between": "never"
+        }]
+      }
     },
     {
       "files": ["*.js", "*.jsx"],
       "extends": ["plugin:@nrwl/nx/javascript"],
       "rules": {}
+    },
+    {
+      "files": ["*.test.ts", "*.test.tsx"],
+      "rules": {
+        "no-restricted-imports": "off",
+        "jest/consistent-test-it": ["error", {"fn": "test"}],
+        "jest/no-commented-out-tests": "error",
+        "jest/no-export": "error",
+        "jest/no-focused-tests": "error",
+        "jest/expect-expect": "error"
+      }
+    },
+    {
+      "files": ["*.stories.tsx"],
+      "rules": {
+        "import/no-default-export": "off"
+      }
+    },
+    {
+      "files": ["*.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
     }
   ]
 }
