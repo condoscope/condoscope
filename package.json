@@ -23,7 +23,10 @@
     "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "prepare": "husky install",
+    "ui-kit:storybook:start": "nx run ui-kit:storybook",
+    "ui-kit:storybook:build": "nx run ui-kit:build-storybook"
   },
   "private": true,
   "dependencies": {
@@ -32,13 +35,15 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "regenerator-runtime": "0.13.7",
-    "tslib": "^2.0.0"
+    "tslib": "2.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.12.13",
     "@babel/preset-env": "7.12.13",
     "@babel/preset-react": "7.12.13",
     "@babel/preset-typescript": "7.12.13",
+    "@commitlint/cli": "12.1.1",
+    "@commitlint/config-conventional": "12.1.1",
     "@nrwl/cli": "12.0.7",
     "@nrwl/eslint-plugin-nx": "12.0.7",
     "@nrwl/jest": "12.0.7",
@@ -68,11 +73,18 @@
     "eslint-plugin-jsx-a11y": "6.4.1",
     "eslint-plugin-react": "7.23.1",
     "eslint-plugin-react-hooks": "4.2.0",
+    "husky": "6.0.0",
     "jest": "26.2.2",
+    "lint-staged": ">=10",
     "prettier": "2.2.1",
+    "stylelint": "13.12.0",
     "ts-jest": "26.4.0",
-    "ts-node": "~9.1.1",
-    "typescript": "~4.1.4",
-    "url-loader": "^3.0.0"
+    "ts-node": "9.1.1",
+    "typescript": "4.1.4",
+    "url-loader": "3.0.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
+    "*.format:write": "prettier --write"
   }
 }
