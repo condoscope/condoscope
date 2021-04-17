@@ -1,15 +1,10 @@
 {
-  "npmScope": "condoscope",
-  "affected": {
-    "defaultBase": "master"
-  },
   "implicitDependencies": {
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
     ".eslintrc.json": "*"
   },
+  "affected": { "defaultBase": "master" },
+  "npmScope": "condoscope",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
@@ -18,10 +13,11 @@
           "build",
           "lint",
           "test",
-          "e2e"
+          "e2e",
+          "build-storybook"
         ]
       }
     }
   },
-  "projects": {}
+  "projects": { "ui-kit": { "tags": [] } }
 }
