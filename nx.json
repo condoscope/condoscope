@@ -19,5 +19,8 @@
       }
     }
   },
-  "projects": { "ui-kit": { "tags": [] } }
+  "projects": {
+    "ui-kit": { "tags": [] },
+    "ui-kit-e2e": { "tags": [], "implicitDependencies": ["ui-kit"] }
+  }
 }

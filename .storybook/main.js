@@ -1,4 +1,17 @@
 module.exports = {
   stories: [],
-  addons: ['@storybook/addon-knobs/register'],
+  addons: [
+    {
+      name: '@storybook/preset-scss',
+      options: {
+        cssLoaderOptions: {
+          importLoaders: 1,
+          modules: {
+            localIdentName: '[name]__[local]--[hash:base64:5]',
+          }
+        }
+      }
+    },
+    '@storybook/addon-knobs/register'
+  ],
 };

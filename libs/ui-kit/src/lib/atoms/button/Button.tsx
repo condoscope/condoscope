@@ -1,5 +1,6 @@
 import React from 'react'
 import { FC, PropsWithChildren } from 'react'
+import classes from './Button.module.scss'
 
 type Props = {
   size?: 'giant' | 'large' | 'medium' | 'small' | 'tiny'
@@ -8,10 +9,11 @@ type Props = {
 }
 
 export const Button: FC<Props> = (props: PropsWithChildren<Props>) => {
+  console.log(classes)
   const { children } = props
 
   return (
-    <button>
+    <button className={classes['button']}>
       {children}
     </button>
   )
