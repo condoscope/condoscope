@@ -82,45 +82,35 @@
     --text-transform: uppercase;
 
     @at-root #{$_button}--basic {
-      --background-color: #{$color__warning-500};
+      --background-color: #{rgba($color__basic-600, 0.08)};
       --border-color: #{$color__basic-600};
       --color: #{$color__basic-600};
     }
 
-    @at-root #{$_button}--primary {}
-
-    @at-root #{$_button}--success {}
-
-    @at-root #{$_button}--info {}
-
-    @at-root #{$_button}--warning {}
-
-    @at-root #{$_button}--danger {}
+    //@at-root #{$_button}--primary {}
+    //
+    //@at-root #{$_button}--success {}
+    //
+    //@at-root #{$_button}--info {}
+    //
+    //@at-root #{$_button}--warning {}
+    //
+    //@at-root #{$_button}--danger {}
   }
 
   &--ghost {
     --text-transform: capitalize;
 
-    @at-root #{$_button}--basic {}
-
-    @at-root #{$_button}--primary {}
-
-    @at-root #{$_button}--success {}
-
-    @at-root #{$_button}--info {}
-
-    @at-root #{$_button}--warning {}
-
-    @at-root #{$_button}--danger {}
+    //@at-root #{$_button}--basic {}
+    //
+    //@at-root #{$_button}--primary {}
+    //
+    //@at-root #{$_button}--success {}
+    //
+    //@at-root #{$_button}--info {}
+    //
+    //@at-root #{$_button}--warning {}
+    //
+    //@at-root #{$_button}--danger {}
   }
-
-  //&--outline {}
-  //
-  //&--ghost {}
-
-  //&--success {}
-  //
-  //&--warning {}
-  //
-  //&--danger {}
 }
