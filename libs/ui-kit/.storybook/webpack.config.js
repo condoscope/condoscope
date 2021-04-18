@@ -1,3 +1,4 @@
+const path = require('path');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const rootWebpackConfig = require('../../../.storybook/webpack.config');
 /**
@@ -15,6 +16,11 @@ module.exports = async ({ config, mode }) => {
   config.resolve.plugins
     ? config.resolve.plugins.push(tsPaths)
     : (config.resolve.plugins = [tsPaths]);
+
+  config.resolve.modules = [
+    ...(config.resolve.modules || []),
+    path.resolve(__dirname, '../src/lib')
+  ];
 
   // Found this here: https://github.com/nrwl/nx/issues/2859
   // And copied the part of the solution that made it work

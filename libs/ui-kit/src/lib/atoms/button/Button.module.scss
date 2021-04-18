@@ -1,27 +1,27 @@
-@import '../../__design/tools';
+@import '__design/tools';
 
 .button {
-  border-radius: rem(4px);
+  border-radius: rem(4);
   height: var(--height);
 
   &--giant {
-    --height: rem(56px);
+    --height: #{rem(56)};
   }
 
   &--large {
-    --height: rem(48px);
+    --height: #{rem(48)};
   }
 
   &--medium {
-    --height: rem(40px);
+    --height: #{rem(40)};
   }
 
   &--small {
-    --height: rem(32px);
+    --height: #{rem(32)};
   }
 
   &--tiny {
-    --height: rem(24px);
+    --height: #{rem(24)};
   }
 
   //&--outline {}
