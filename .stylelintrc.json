@@ -8,7 +8,7 @@
     "color-no-invalid-hex": true,
     "block-no-empty": true,
     "at-rule-empty-line-before": ["always", { "except": ["blockless-after-same-name-blockless", "first-nested"], "ignoreAtRules": ["else"] }],
-    "declaration-empty-line-before": "never",
+    "declaration-empty-line-before": ["always", {"except": ["after-declaration", "first-nested"]}],
     "no-duplicate-selectors": true,
     "declaration-block-no-duplicate-properties": true,
     "indentation": [2, { "baseIndentLevel": 1 }],

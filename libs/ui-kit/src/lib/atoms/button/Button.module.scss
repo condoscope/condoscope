@@ -1,1 +1,35 @@
-.button {}
+.button {
+  --height: 40px;
+
+  height: var(--height);
+
+  &--giant {
+    --height: 56px;
+  }
+
+  &--large {
+    --height: 48px;
+  }
+
+  &--small {
+    --height: 32px;
+  }
+
+  &--tiny {
+    --height: 24px;
+  }
+
+  //&--filled {}
+  //
+  //&--outline {}
+  //
+  //&--ghost {}
+  //
+  //&--primary {}
+  //
+  //&--success {}
+  //
+  //&--warning {}
+  //
+  //&--danger {}
+}
