@@ -1,26 +1,29 @@
-.button {
-  --height: 40px;
+@import '../../__design/tools';
 
+.button {
+  border-radius: rem(4px);
   height: var(--height);
 
   &--giant {
-    --height: 56px;
+    --height: rem(56px);
   }
 
   &--large {
-    --height: 48px;
+    --height: rem(48px);
+  }
+
+  &--medium {
+    --height: rem(40px);
   }
 
   &--small {
-    --height: 32px;
+    --height: rem(32px);
   }
 
   &--tiny {
-    --height: 24px;
+    --height: rem(24px);
   }
 
-  //&--filled {}
-  //
   //&--outline {}
   //
   //&--ghost {}
