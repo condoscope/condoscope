@@ -1,0 +1,13 @@
+/* stylelint-disable order/order */
+
+@mixin propertyAnimation($properties, $duration: 0.15) {
+  $props: ();
+
+  @each $prop in $properties {
+    $props: append($props, unquote($prop), comma);
+  }
+
+  transition-duration: #{$duration}s;
+  transition-property: $props;
+  transition-timing-function: ease-in;
+}

@@ -11,6 +11,8 @@
   padding: var(--padding);
   text-transform: var(--text-transform, capitalize);
 
+  @include propertyAnimation(('background-color', 'border-color'));
+
   &.giant {
     --font-size: #{rem(18)};
     --padding: #{rem(16) rem(24)};
@@ -44,26 +46,50 @@
     &.basic {
       --background-color: #{$color__basic-300};
       --color: #{$color__basic-800};
+
+      &:hover {
+        --background-color: #{$color__basic-200};
+      }
     }
 
     &.primary {
       --background-color: #{$color__primary-500};
+
+      &:hover {
+        --background-color: #{$color__primary-400};
+      }
     }
 
     &.success {
       --background-color: #{$color__success-500};
+
+      &:hover {
+        --background-color: #{$color__success-400};
+      }
     }
 
     &.info {
       --background-color: #{$color__info-500};
+
+      &:hover {
+        --background-color: #{$color__info-400};
+      }
     }
 
     &.warning {
       --background-color: #{$color__warning-500};
+
+      &:hover {
+        --background-color: #{$color__warning-400};
+      }
     }
 
     &.danger {
       --background-color: #{$color__danger-500};
+
+      &:hover {
+        --background-color: #{$color__danger-400};
+      }
     }
   }
 
