@@ -100,35 +100,63 @@
     &.basic {
       --color: #{$color__basic-600};
       --background-color: #{transparentize($color__basic-600, 0.92)};
+
+      &:hover {
+        --background-color: #{transparentize($color__basic-600, 0.84)};
+      }
     }
 
     &.primary {
       --color: #{$color__primary-500};
       --background-color: #{transparentize($color__primary-500, 0.92)};
+
+      &:hover {
+        --background-color: #{transparentize($color__primary-500, 0.84)};
+      }
     }
 
     &.success {
       --color: #{$color__success-500};
       --background-color: #{transparentize($color__success-500, 0.92)};
+
+      &:hover {
+        --background-color: #{transparentize($color__success-500, 0.84)};
+      }
     }
 
     &.info {
       --color: #{$color__info-500};
       --background-color: #{transparentize($color__info-500, 0.92)};
+
+      &:hover {
+        --background-color: #{transparentize($color__info-500, 0.84)};
+      }
     }
 
     &.warning {
       --color: #{$color__warning-500};
       --background-color: #{transparentize($color__warning-500, 0.92)};
+
+      &:hover {
+        --background-color: #{transparentize($color__warning-500, 0.84)};
+      }
     }
 
     &.danger {
       --color: #{$color__danger-500};
       --background-color: #{transparentize($color__danger-500, 0.92)};
+
+      &:hover {
+        --background-color: #{transparentize($color__danger-500, 0.84)};
+      }
     }
   }
 
   &.ghost {
+
+    &:hover {
+      --background-color: #{transparentize($color__basic-600, 0.92)};
+    }
 
     &.basic {
       --color: #{$color__basic-800};
