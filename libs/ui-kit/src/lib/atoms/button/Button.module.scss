@@ -2,8 +2,6 @@
 @import '__design/tools';
 
 .button {
-  $_button: &;
-
   background-color: var(--background-color);
   border: rem(1) solid var(--border-color);
   border-radius: rem(4);
@@ -13,104 +11,136 @@
   padding: var(--padding);
   text-transform: var(--text-transform);
 
-  &--giant {
+  &.giant {
     --font-size: #{rem(18)};
     --padding: #{rem(16) rem(24)};
   }
 
-  &--large {
+  &.large {
     --font-size: #{rem(16)};
     --padding: #{rem(12) rem(20)};
   }
 
-  &--medium {
+  &.medium {
     --font-size: #{rem(14)};
     --padding: #{rem(10) rem(18)};
   }
 
-  &--small {
+  &.small {
     --font-size: #{rem(12)};
     --padding: #{rem(8) rem(16)};
   }
 
-  &--tiny {
+  &.tiny {
     --font-size: #{rem(10)};
     --padding: #{rem(6) rem(14)};
   }
 
-  &--filled {
+  &.filled {
     --text-transform: uppercase;
 
-    @at-root #{$_button}--basic {
+    &.basic {
       --background-color: #{$color__basic-300};
       --border-color: #{$color__basic-300};
       --color: #{$color__basic-800};
     }
 
-    @at-root #{$_button}--primary {
+    &.primary {
       --background-color: #{$color__primary-500};
       --border-color: #{$color__primary-500};
       --color: #{$color__basic-100};
     }
 
-    @at-root #{$_button}--success {
+    &.success {
       --background-color: #{$color__success-500};
       --border-color: #{$color__success-500};
       --color: #{$color__basic-100};
     }
 
-    @at-root #{$_button}--info {
+    &.info {
       --background-color: #{$color__info-500};
       --border-color: #{$color__info-500};
       --color: #{$color__basic-100};
     }
 
-    @at-root #{$_button}--warning {
+    &.warning {
       --background-color: #{$color__warning-500};
       --border-color: #{$color__warning-500};
       --color: #{$color__basic-100};
     }
 
-    @at-root #{$_button}--danger {
+    &.danger {
       --background-color: #{$color__danger-500};
       --border-color: #{$color__danger-500};
       --color: #{$color__basic-100};
     }
   }
 
-  &--outline {
+  &.outline {
     --text-transform: uppercase;
 
-    @at-root #{$_button}--basic {
+    &.basic {
       --background-color: #{rgba($color__basic-600, 0.08)};
       --border-color: #{$color__basic-600};
       --color: #{$color__basic-600};
     }
 
-    //@at-root #{$_button}--primary {}
-    //
-    //@at-root #{$_button}--success {}
-    //
-    //@at-root #{$_button}--info {}
-    //
-    //@at-root #{$_button}--warning {}
-    //
-    //@at-root #{$_button}--danger {}
+    &.primary {
+      --background-color: #{rgba($color__primary-500, 0.08)};
+      --border-color: #{$color__primary-500};
+      --color: #{$color__primary-500};
+    }
+
+    &.success {
+      --background-color: #{rgba($color__success-500, 0.08)};
+      --border-color: #{$color__success-500};
+      --color: #{$color__success-500};
+    }
+
+    &.info {
+      --background-color: #{rgba($color__info-500, 0.08)};
+      --border-color: #{$color__info-500};
+      --color: #{$color__info-500};
+    }
+
+    &.warning {
+      --background-color: #{rgba($color__warning-500, 0.08)};
+      --border-color: #{$color__warning-500};
+      --color: #{$color__warning-500};
+    }
+
+    &.danger {
+      --background-color: #{rgba($color__danger-500, 0.08)};
+      --border-color: #{$color__danger-500};
+      --color: #{$color__danger-500};
+    }
   }
 
-  &--ghost {
+  &.ghost {
     --text-transform: capitalize;
 
-    //@at-root #{$_button}--basic {}
-    //
-    //@at-root #{$_button}--primary {}
-    //
-    //@at-root #{$_button}--success {}
-    //
-    //@at-root #{$_button}--info {}
-    //
-    //@at-root #{$_button}--warning {}
-    //
-    //@at-root #{$_button}--danger {}
+    &.basic {
+      --color: #{$color__basic-800};
+    }
+
+    &.primary {
+      --color: #{$color__primary-500};
+    }
+
+    &.success {
+      --color: #{$color__success-500};
+    }
+
+    &.info {
+      --color: #{$color__info-500};
+    }
+
+    &.warning {
+      --color: #{$color__warning-500};
+    }
+
+    &.danger {
+      --color: #{$color__danger-500};
+    }
   }
 }

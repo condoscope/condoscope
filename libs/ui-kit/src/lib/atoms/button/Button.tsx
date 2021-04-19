@@ -11,7 +11,7 @@ type Props = {
 
 export const Button: FC<Props> = (props: PropsWithChildren<Props>) => {
   const { children, size, appearance, status } = props
-  const classes = classNames(styles['button'], styles[`button--${size}`], styles[`button--${appearance}`], styles[`button--${status}`])
+  const classes = classNames(styles['button'], styles[size], styles[appearance], styles[status])
 
   return (
     <button className={classes}>
