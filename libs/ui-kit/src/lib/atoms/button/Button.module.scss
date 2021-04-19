@@ -2,14 +2,14 @@
 @import '__design/tools';
 
 .button {
-  background-color: var(--background-color);
-  border: rem(1) solid var(--border-color);
+  background-color: var(--background-color, transparent);
+  border: rem(1) solid var(--border-color, transparent);
   border-radius: rem(4);
   color: var(--color);
   cursor: pointer;
   font-size: var(--font-size);
   padding: var(--padding);
-  text-transform: var(--text-transform);
+  text-transform: var(--text-transform, capitalize);
 
   &.giant {
     --font-size: #{rem(18)};
@@ -38,86 +38,71 @@
 
   &.filled {
     --text-transform: uppercase;
+    --border-color: var(--background-color);
+    --color: #{$color__basic-100};
 
     &.basic {
       --background-color: #{$color__basic-300};
-      --border-color: #{$color__basic-300};
       --color: #{$color__basic-800};
     }
 
     &.primary {
       --background-color: #{$color__primary-500};
-      --border-color: #{$color__primary-500};
-      --color: #{$color__basic-100};
     }
 
     &.success {
       --background-color: #{$color__success-500};
-      --border-color: #{$color__success-500};
-      --color: #{$color__basic-100};
     }
 
     &.info {
       --background-color: #{$color__info-500};
-      --border-color: #{$color__info-500};
-      --color: #{$color__basic-100};
     }
 
     &.warning {
       --background-color: #{$color__warning-500};
-      --border-color: #{$color__warning-500};
-      --color: #{$color__basic-100};
     }
 
     &.danger {
       --background-color: #{$color__danger-500};
-      --border-color: #{$color__danger-500};
-      --color: #{$color__basic-100};
     }
   }
 
   &.outline {
     --text-transform: uppercase;
+    --border-color: var(--color);
 
     &.basic {
-      --background-color: #{rgba($color__basic-600, 0.08)};
-      --border-color: #{$color__basic-600};
       --color: #{$color__basic-600};
+      --background-color: #{transparentize($color__basic-600, 0.92)};
     }
 
     &.primary {
-      --background-color: #{rgba($color__primary-500, 0.08)};
-      --border-color: #{$color__primary-500};
       --color: #{$color__primary-500};
+      --background-color: #{transparentize($color__primary-500, 0.92)};
     }
 
     &.success {
-      --background-color: #{rgba($color__success-500, 0.08)};
-      --border-color: #{$color__success-500};
       --color: #{$color__success-500};
+      --background-color: #{transparentize($color__success-500, 0.92)};
     }
 
     &.info {
-      --background-color: #{rgba($color__info-500, 0.08)};
-      --border-color: #{$color__info-500};
       --color: #{$color__info-500};
+      --background-color: #{transparentize($color__info-500, 0.92)};
     }
 
     &.warning {
-      --background-color: #{rgba($color__warning-500, 0.08)};
-      --border-color: #{$color__warning-500};
       --color: #{$color__warning-500};
+      --background-color: #{transparentize($color__warning-500, 0.92)};
     }
 
     &.danger {
-      --background-color: #{rgba($color__danger-500, 0.08)};
-      --border-color: #{$color__danger-500};
       --color: #{$color__danger-500};
+      --background-color: #{transparentize($color__danger-500, 0.92)};
     }
   }
 
   &.ghost {
-    --text-transform: capitalize;
 
     &.basic {
       --color: #{$color__basic-800};
