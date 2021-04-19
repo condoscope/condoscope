@@ -1,0 +1,6 @@
+@mixin focus-state {
+  &:focus,
+  &:active {
+    @content;
+  }
+}

@@ -11,7 +11,18 @@
   padding: var(--padding);
   text-transform: var(--text-transform, capitalize);
 
-  @include propertyAnimation(('background-color', 'border-color'));
+  @include propertyAnimation(('background-color', 'border-color', 'box-shadow'));
+
+  @include focus-state {
+    background-color: var(--focus-background-color, inherit);
+    border-color: var(--focus-border-color, inherit);
+    box-shadow: var(--focus-box-shadow, 0 0 0 rem(6) transparentize($color__basic-600, 0.84));
+    outline: none;
+  }
+
+  &:hover {
+    background-color: var(--hover-background-color);
+  }
 
   &.giant {
     --font-size: #{rem(18)};
@@ -43,120 +54,107 @@
     --border-color: var(--background-color);
     --color: #{$color__basic-100};
 
+    &:hover {
+      --border-color: var(--hover-background-color);
+    }
+
     &.basic {
       --background-color: #{$color__basic-300};
       --color: #{$color__basic-800};
-
-      &:hover {
-        --background-color: #{$color__basic-200};
-      }
+      --hover-background-color: #{$color__basic-200};
+      --focus-border-color: #{$color__basic-500};
+      --focus-background-color: #{$color__basic-400};
     }
 
     &.primary {
       --background-color: #{$color__primary-500};
-
-      &:hover {
-        --background-color: #{$color__primary-400};
-      }
+      --hover-background-color: #{$color__primary-400};
+      --focus-border-color: #{$color__primary-700};
+      --focus-background-color: #{$color__primary-600};
     }
 
     &.success {
       --background-color: #{$color__success-500};
-
-      &:hover {
-        --background-color: #{$color__success-400};
-      }
+      --hover-background-color: #{$color__success-400};
+      --focus-border-color: #{$color__success-700};
+      --focus-background-color: #{$color__success-600};
     }
 
     &.info {
       --background-color: #{$color__info-500};
-
-      &:hover {
-        --background-color: #{$color__info-400};
-      }
+      --hover-background-color: #{$color__info-400};
+      --focus-border-color: #{$color__info-700};
+      --focus-background-color: #{$color__info-600};
     }
 
     &.warning {
       --background-color: #{$color__warning-500};
-
-      &:hover {
-        --background-color: #{$color__warning-400};
-      }
+      --hover-background-color: #{$color__warning-400};
+      --focus-border-color: #{$color__warning-700};
+      --focus-background-color: #{$color__warning-600};
     }
 
     &.danger {
       --background-color: #{$color__danger-500};
-
-      &:hover {
-        --background-color: #{$color__danger-400};
-      }
+      --hover-background-color: #{$color__danger-400};
+      --focus-border-color: #{$color__danger-700};
+      --focus-background-color: #{$color__danger-600};
     }
   }
 
   &.outline {
     --text-transform: uppercase;
     --border-color: var(--color);
+    --focus-box-shadow: #{0 0 0 rem(6) transparentize($color__basic-600, 0.84), inset 0 0 0 100vmax transparentize($color__basic-600, 0.84)};
 
     &.basic {
       --color: #{$color__basic-600};
       --background-color: #{transparentize($color__basic-600, 0.92)};
-
-      &:hover {
-        --background-color: #{transparentize($color__basic-600, 0.84)};
-      }
+      --hover-background-color: #{transparentize($color__basic-600, 0.84)};
+      --focus-background-color: #{transparentize($color__basic-600, 0.76)};
     }
 
     &.primary {
       --color: #{$color__primary-500};
       --background-color: #{transparentize($color__primary-500, 0.92)};
-
-      &:hover {
-        --background-color: #{transparentize($color__primary-500, 0.84)};
-      }
+      --hover-background-color: #{transparentize($color__primary-500, 0.84)};
+      --focus-background-color: #{transparentize($color__primary-600, 0.76)};
     }
 
     &.success {
       --color: #{$color__success-500};
       --background-color: #{transparentize($color__success-500, 0.92)};
-
-      &:hover {
-        --background-color: #{transparentize($color__success-500, 0.84)};
-      }
+      --hover-background-color: #{transparentize($color__success-500, 0.84)};
+      --focus-background-color: #{transparentize($color__success-600, 0.76)};
     }
 
     &.info {
       --color: #{$color__info-500};
       --background-color: #{transparentize($color__info-500, 0.92)};
-
-      &:hover {
-        --background-color: #{transparentize($color__info-500, 0.84)};
-      }
+      --hover-background-color: #{transparentize($color__info-500, 0.84)};
+      --focus-background-color: #{transparentize($color__info-600, 0.76)};
     }
 
     &.warning {
       --color: #{$color__warning-500};
       --background-color: #{transparentize($color__warning-500, 0.92)};
-
-      &:hover {
-        --background-color: #{transparentize($color__warning-500, 0.84)};
-      }
+      --hover-background-color: #{transparentize($color__warning-500, 0.84)};
+      --focus-background-color: #{transparentize($color__warning-600, 0.76)};
     }
 
     &.danger {
       --color: #{$color__danger-500};
       --background-color: #{transparentize($color__danger-500, 0.92)};
-
-      &:hover {
-        --background-color: #{transparentize($color__danger-500, 0.84)};
-      }
+      --hover-background-color: #{transparentize($color__danger-500, 0.84)};
+      --focus-background-color: #{transparentize($color__danger-600, 0.76)};
     }
   }
 
   &.ghost {
-
-    &:hover {
-      --background-color: #{transparentize($color__basic-600, 0.92)};
-    }
+    --hover-background-color: #{transparentize($color__basic-600, 0.92)};
+    --focus-box-shadow: #{0 0 0 rem(6) transparentize($color__basic-600, 0.84), inset 0 0 0 100vmax transparentize($color__basic-600, 0.84)};
+    --focus-border-color: #{transparentize($color__basic-600, 0.4)};
+    --focus-background-color: #{transparentize($color__basic-600, 0.84)};
 
     &.basic {
       --color: #{$color__basic-800};
