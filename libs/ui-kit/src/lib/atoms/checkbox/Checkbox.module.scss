@@ -10,9 +10,35 @@
   &__input {
     @extend %visually-hidden;
 
-    @include focus-state {
-      & + .checkbox__box {
-        box-shadow: 0 0 0 rem(6) transparentize($color__basic-600, 0.84);
+    &:enabled {
+      @include focus-state {
+        & + .checkbox__box {
+          box-shadow: #{0 0 0 rem(6) transparentize($color__basic-600, 0.84), inset 0 0 0 100vmax transparentize($color__basic-600, 0.84)};
+
+          &.basic {
+            --background-color: #{transparentize($color__basic-600, 0.76)};
+          }
+
+          &.primary {
+            --background-color: #{transparentize($color__primary-500, 0.76)};
+          }
+
+          &.info {
+            --background-color: #{transparentize($color__info-500, 0.76)};
+          }
+
+          &.success {
+            --background-color: #{transparentize($color__success-500, 0.76)};
+          }
+
+          &.warning {
+            --background-color: #{transparentize($color__warning-500, 0.76)};
+          }
+
+          &.danger {
+            --background-color: #{transparentize($color__danger-500, 0.76)};
+          }
+        }
       }
     }
   }
@@ -29,34 +55,44 @@
 
     @include propertyAnimation(('background-color', 'border-color', 'box-shadow'));
 
+    &:hover {
+      background-color: var(--hover-background-color);
+    }
+
     &.basic {
-      --background-color: #{transparentize($color__basic-600, 0.84)};
+      --background-color: #{transparentize($color__basic-600, 0.92)};
       --border-color: #{$color__basic-500};
+      --hover-background-color: #{transparentize($color__basic-600, 0.84)};
     }
 
     &.primary {
-      --background-color: #{transparentize($color__primary-500, 0.84)};
+      --background-color: #{transparentize($color__primary-500, 0.92)};
       --border-color: #{$color__primary-500};
+      --hover-background-color: #{transparentize($color__primary-500, 0.84)};
     }
 
     &.info {
-      --background-color: #{transparentize($color__info-500, 0.84)};
+      --background-color: #{transparentize($color__info-500, 0.92)};
       --border-color: #{$color__info-500};
+      --hover-background-color: #{transparentize($color__info-500, 0.84)};
     }
 
     &.success {
-      --background-color: #{transparentize($color__success-500, 0.84)};
+      --background-color: #{transparentize($color__success-500, 0.92)};
       --border-color: #{$color__success-500};
+      --hover-background-color: #{transparentize($color__success-500, 0.84)};
     }
 
     &.warning {
-      --background-color: #{transparentize($color__warning-500, 0.84)};
+      --background-color: #{transparentize($color__warning-500, 0.92)};
       --border-color: #{$color__warning-500};
+      --hover-background-color: #{transparentize($color__warning-500, 0.84)};
     }
 
     &.danger {
-      --background-color: #{transparentize($color__danger-500, 0.84)};
+      --background-color: #{transparentize($color__danger-500, 0.92)};
       --border-color: #{$color__danger-500};
+      --hover-background-color: #{transparentize($color__danger-500, 0.84)};
     }
   }
 
