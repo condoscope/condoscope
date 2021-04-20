@@ -40,6 +40,36 @@
           }
         }
       }
+
+      &:checked {
+        & + .checkbox__box {
+          --border-color: var(--background-color);
+
+          &.basic {
+            --background-color: #{$color__primary-500};
+          }
+
+          &.primary {
+            --background-color: #{$color__primary-500};
+          }
+
+          &.info {
+            --background-color: #{$color__info-500};
+          }
+
+          &.success {
+            --background-color: #{$color__success-500};
+          }
+
+          &.warning {
+            --background-color: #{$color__warning-500};
+          }
+
+          &.danger {
+            --background-color: #{$color__danger-500};
+          }
+        }
+      }
     }
   }
 

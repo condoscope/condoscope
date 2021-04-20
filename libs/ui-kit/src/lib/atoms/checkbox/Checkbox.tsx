@@ -21,7 +21,7 @@ export const Checkbox: FC<Props> = (props: PropsWithChildren<Props>) => {
 
   return (
     <label className={groupClasses}>
-      <input type="checkbox" className={inputClasses} />
+      <input type="checkbox" checked={checked} className={inputClasses} />
       <span className={checkmarkBoxClasses}>
         {checkmark}
       </span>
