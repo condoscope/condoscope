@@ -1,17 +1,70 @@
+@import '__design/settings';
+@import '__design/tools';
+
 .checkbox {
+  cursor: pointer;
+  display: flex;
+  padding-left: rem(26);
+
   &__input {
-    /* keep */
+    @extend %visually-hidden;
   }
 
   &__box {
-    /* keep */
+    background-color: var(--background-color);
+    border: rem(1) solid var(--border-color);
+    border-radius: rem(3);
+    box-sizing: border-box;
+    height: rem(20);
+    margin-left: rem(-26);
+    position: absolute;
+    width: rem(20);
+
+    @include propertyAnimation(('background-color', 'border-color', 'box-shadow'));
+
+    &.basic {
+      --background-color: #{transparentize($color__basic-600, 0.84)};
+      --border-color: #{$color__basic-500};
+    }
+
+    &.primary {
+      --background-color: #{transparentize($color__primary-500, 0.84)};
+      --border-color: #{$color__primary-500};
+    }
+
+    &.info {
+      --background-color: #{transparentize($color__info-500, 0.84)};
+      --border-color: #{$color__info-500};
+    }
+
+    &.success {
+      --background-color: #{transparentize($color__success-500, 0.84)};
+      --border-color: #{$color__success-500};
+    }
+
+    &.warning {
+      --background-color: #{transparentize($color__warning-500, 0.84)};
+      --border-color: #{$color__warning-500};
+    }
+
+    &.danger {
+      --background-color: #{transparentize($color__danger-500, 0.84)};
+      --border-color: #{$color__danger-500};
+    }
   }
 
   &__checkmark {
-    /* keep */
+    color: $color__basic-100;
+    height: rem(8);
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: rem(8);
   }
 
   &__label {
-    /* keep */
+    color: $color__basic-800;
+    line-height: rem(20);
   }
 }
