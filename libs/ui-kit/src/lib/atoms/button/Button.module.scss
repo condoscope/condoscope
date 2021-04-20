@@ -7,7 +7,9 @@
   border-radius: rem(4);
   color: var(--color);
   cursor: pointer;
+  font-family: $font__primary;
   font-size: var(--font-size);
+  font-weight: $font-weight__bold;
   padding: var(--padding);
   text-transform: var(--text-transform, capitalize);
 

@@ -4,6 +4,7 @@
 .checkbox {
   cursor: pointer;
   display: flex;
+  font-family: $font__primary;
   padding-left: rem(26);
 
   &__input {
