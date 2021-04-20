@@ -8,6 +8,12 @@
 
   &__input {
     @extend %visually-hidden;
+
+    @include focus-state {
+      & + .checkbox__box {
+        box-shadow: 0 0 0 rem(6) transparentize($color__basic-600, 0.84);
+      }
+    }
   }
 
   &__box {
