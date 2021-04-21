@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import { boolean, select, text } from '@storybook/addon-knobs'
 import { Input } from './Input'
+import { StarIcon } from '../icons'
 
 export default {
   component: Input,
@@ -26,6 +27,7 @@ export const regular: FC = () => {
         Danger: 'danger',
       }, 'basic')}
       caption={text('Caption', 'Caption')}
+      icon={<StarIcon />}
     >
       {text('Label', 'Label')}
     </Input>

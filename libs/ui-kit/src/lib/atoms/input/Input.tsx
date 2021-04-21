@@ -1,6 +1,7 @@
-import React, { FC, PropsWithChildren } from 'react'
+import React, { FC, FormEvent, PropsWithChildren } from 'react'
 import classNames from 'classnames'
 import styles from './Input.module.scss'
+import { noop } from '../../utils'
 
 type Props = {
   disabled?: boolean
@@ -11,25 +12,34 @@ type Props = {
   caption?: React.ReactNode
   placeholder?: string
   size?: 'small' | 'medium' | 'large'
+  onChange?: (event: FormEvent<HTMLInputElement>) => void
 }
 
 export const Input: FC<Props> = (props: PropsWithChildren<Props>) => {
-  const { children, type, icon, caption, readonly, disabled, placeholder } = props
+  const { children, type, size, appearance, icon, caption, readonly, disabled, placeholder, onChange } = props
 
   const groupClasses = classNames(styles['input'])
+  const labelClasses = classNames(styles['input__label'], { [styles['input__label--empty']]: !children })
+  const helpClasses = classNames(styles['input__help'])
+  const inputWrapperClasses = classNames(styles['input__wrapper'])
+  const iconClasses = classNames(styles['input__icon'], styles[size], styles[appearance])
+  const inputClasses = classNames(styles['input__input'])
 
   return (
     <div className={groupClasses}>
-      <label>
-        {children}
+      <label className={labelClasses}>
+        {children || 'Empty label'}
       </label>
-      <span>
+
+      <span className={helpClasses}>
         Help
       </span>
 
-      <div>
-        <input type={type} readOnly={readonly} disabled={disabled} placeholder={placeholder} />
-        {icon}
+      <div className={inputWrapperClasses}>
+        <input type={type} readOnly={readonly} disabled={disabled} placeholder={placeholder} onChange={onChange} className={inputClasses} />
+        <span className={iconClasses}>
+          {icon}
+        </span>
       </div>
 
       {caption}
@@ -46,4 +56,5 @@ Input.defaultProps = {
   caption: null,
   placeholder: '',
   size: 'medium',
+  onChange: noop,
 }

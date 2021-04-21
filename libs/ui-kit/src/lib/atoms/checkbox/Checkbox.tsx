@@ -1,12 +1,14 @@
-import React, { FC, PropsWithChildren } from 'react'
+import React, { FC, FormEvent, PropsWithChildren } from 'react'
 import classNames from 'classnames'
 import styles from './Checkbox.module.scss'
 import { CheckmarkIcon } from '../icons'
+import { noop } from '../../utils'
 
 type Props = {
   disabled?: boolean
   checked?: boolean
   appearance?: 'basic' | 'primary' | 'info' | 'success' | 'warning' | 'danger'
+  onChange?: (event: FormEvent<HTMLInputElement>) => void
 }
 
 export const Checkbox: FC<Props> = (props: PropsWithChildren<Props>) => {
@@ -37,4 +39,5 @@ Checkbox.defaultProps = {
   disabled: false,
   checked: false,
   appearance: 'basic',
+  onChange: noop,
 }
