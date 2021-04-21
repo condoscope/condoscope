@@ -1,6 +1,7 @@
 import React, { FC, PropsWithChildren } from 'react'
 import classNames from 'classnames'
 import styles from './Checkbox.module.scss'
+import { CheckmarkIcon } from '../icons'
 
 type Props = {
   disabled?: boolean
@@ -9,7 +10,7 @@ type Props = {
 }
 
 export const Checkbox: FC<Props> = (props: PropsWithChildren<Props>) => {
-  const { children, checked, appearance } = props
+  const { children, checked, appearance, disabled } = props
 
   const groupClasses = classNames(styles['checkbox'])
   const inputClasses = classNames(styles['checkbox__input'])
@@ -17,11 +18,11 @@ export const Checkbox: FC<Props> = (props: PropsWithChildren<Props>) => {
   const checkmarkClasses = classNames(styles['checkbox__checkmark'], styles[appearance])
   const labelClasses = classNames(styles['checkbox__label'])
 
-  const checkmark = checked ? <span className={checkmarkClasses} /> : null
+  const checkmark = checked ? <CheckmarkIcon className={checkmarkClasses} /> : null
 
   return (
     <label className={groupClasses}>
-      <input type="checkbox" checked={checked} className={inputClasses} />
+      <input type="checkbox" checked={checked} className={inputClasses} disabled={disabled} />
       <span className={checkmarkBoxClasses}>
         {checkmark}
       </span>
