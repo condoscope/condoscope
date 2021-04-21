@@ -4,13 +4,15 @@ type Props = {
   disabled?: boolean
   appearance?: 'basic' | 'primary' | 'info' | 'success' | 'warning' | 'danger'
   type?: 'text' | 'email' | 'number'
-  readonly: boolean
+  readonly?: boolean
   icon?: React.ReactNode
-  caption: React.ReactNode
+  caption?: React.ReactNode
+  placeholder?: string
+  size?: 'small' | 'medium' | 'large'
 }
 
 export const Input: FC<Props> = (props: PropsWithChildren<Props>) => {
-  const { children, type, icon, caption, readonly, disabled } = props
+  const { children, type, icon, caption, readonly, disabled, placeholder } = props
 
   return (
     <div>
@@ -22,7 +24,7 @@ export const Input: FC<Props> = (props: PropsWithChildren<Props>) => {
       </span>
 
       <div>
-        <input type={type} readOnly={readonly} disabled={disabled} />
+        <input type={type} readOnly={readonly} disabled={disabled} placeholder={placeholder} />
         {icon}
       </div>
 
@@ -38,4 +40,6 @@ Input.defaultProps = {
   readonly: false,
   icon: null,
   caption: null,
+  placeholder: '',
+  size: 'medium',
 }
