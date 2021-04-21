@@ -12,11 +12,12 @@ type Props = {
   caption?: React.ReactNode
   placeholder?: string
   size?: 'small' | 'medium' | 'large'
+  helpText?: string
   onChange?: (event: FormEvent<HTMLInputElement>) => void
 }
 
 export const Input: FC<Props> = (props: PropsWithChildren<Props>) => {
-  const { children, type, size, appearance, icon, caption, readonly, disabled, placeholder, onChange } = props
+  const { children, type, size, appearance, icon, caption, readonly, disabled, placeholder, helpText, onChange } = props
 
   const groupClasses = classNames(styles['input'])
   const labelClasses = classNames(styles['input__label'], { [styles['input__label--empty']]: !children })
@@ -26,15 +27,19 @@ export const Input: FC<Props> = (props: PropsWithChildren<Props>) => {
   const inputClasses = classNames(styles['input__input'], styles[size], styles[appearance], { [styles['input__input--with-icon']]: Boolean(icon) })
   const captionClasses = classNames(styles['input__caption'], styles[appearance])
 
+  const help = helpText ? (
+    <span className={helpClasses}>
+      Help
+    </span>
+  ) : null
+
   return (
     <div className={groupClasses}>
       <label className={labelClasses}>
         {children || 'Empty label'}
       </label>
 
-      <span className={helpClasses}>
-        Help
-      </span>
+      {help}
 
       <div className={inputWrapperClasses}>
         <input type={type} readOnly={readonly} disabled={disabled} placeholder={placeholder} onChange={onChange} className={inputClasses} />
@@ -59,5 +64,6 @@ Input.defaultProps = {
   caption: null,
   placeholder: '',
   size: 'medium',
+  helpText: '',
   onChange: noop,
 }
