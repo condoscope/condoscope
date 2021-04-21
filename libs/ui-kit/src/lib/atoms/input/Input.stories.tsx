@@ -27,6 +27,31 @@ export const regular: FC = () => {
         Danger: 'danger',
       }, 'basic')}
       caption={text('Caption', 'Caption')}
+    >
+      {text('Label', 'Label')}
+    </Input>
+  )
+}
+
+export const withIcon: FC = () => {
+  return (
+    <Input
+      placeholder={text('Placeholder', 'Placeholder')}
+      disabled={boolean('Disabled', false)}
+      size={select('Size', {
+        Small: 'small',
+        Medium: 'medium',
+        Large: 'large',
+      }, 'medium')}
+      appearance={select('Appearance', {
+        Basic: 'basic',
+        Primary: 'primary',
+        Info: 'info',
+        Success: 'success',
+        Warning: 'warning',
+        Danger: 'danger',
+      }, 'basic')}
+      caption={text('Caption', 'Caption')}
       icon={<StarIcon />}
     >
       {text('Label', 'Label')}
