@@ -23,7 +23,7 @@ export const Input: FC<Props> = (props: PropsWithChildren<Props>) => {
   const helpClasses = classNames(styles['input__help'])
   const inputWrapperClasses = classNames(styles['input__wrapper'])
   const iconClasses = classNames(styles['input__icon'], styles[size], styles[appearance])
-  const inputClasses = classNames(styles['input__input'], styles[size], { [styles['input__input--with-icon']]: Boolean(icon) })
+  const inputClasses = classNames(styles['input__input'], styles[size], styles[appearance], { [styles['input__input--with-icon']]: Boolean(icon) })
 
   return (
     <div className={groupClasses}>
