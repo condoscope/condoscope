@@ -10,7 +10,7 @@ type Props = {
 }
 
 export const Checkbox: FC<Props> = (props: PropsWithChildren<Props>) => {
-  const { children, checked, appearance, disabled } = props
+  const { children, checked, appearance, disabled, onChange } = props
 
   const groupClasses = classNames(styles['checkbox'])
   const inputClasses = classNames(styles['checkbox__input'])
@@ -22,7 +22,7 @@ export const Checkbox: FC<Props> = (props: PropsWithChildren<Props>) => {
 
   return (
     <label className={groupClasses}>
-      <input type="checkbox" checked={checked} className={inputClasses} disabled={disabled} />
+      <input type="checkbox" checked={checked} className={inputClasses} disabled={disabled} onChange={onChange} />
       <span className={checkmarkBoxClasses}>
         {checkmark}
       </span>
