@@ -45,28 +45,39 @@
         & + .checkbox__box {
           --border-color: var(--background-color);
 
+          &:hover {
+            --background-color: var(--hover-background-color);
+            --border-color: var(--hover-background-color);
+          }
+
           &.basic {
             --background-color: #{$color__primary-500};
+            --hover-background-color: #{$color__primary-400};
           }
 
           &.primary {
             --background-color: #{$color__primary-500};
+            --hover-background-color: #{$color__primary-400};
           }
 
           &.info {
             --background-color: #{$color__info-500};
+            --hover-background-color: #{$color__info-400};
           }
 
           &.success {
             --background-color: #{$color__success-500};
+            --hover-background-color: #{$color__success-400};
           }
 
           &.warning {
             --background-color: #{$color__warning-500};
+            --hover-background-color: #{$color__warning-400};
           }
 
           &.danger {
             --background-color: #{$color__danger-500};
+            --hover-background-color: #{$color__danger-400};
           }
         }
       }
