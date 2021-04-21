@@ -25,6 +25,7 @@ export const regular: FC = () => {
         Warning: 'warning',
         Danger: 'danger',
       }, 'basic')}
+      caption={text('Caption', 'Caption')}
     >
       {text('Label', 'Label')}
     </Input>
