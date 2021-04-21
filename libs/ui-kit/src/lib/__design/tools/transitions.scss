@@ -1,6 +1,6 @@
 /* stylelint-disable order/order */
 
-@mixin propertyAnimation($properties, $duration: 0.15) {
+@mixin property-animation($properties, $duration: 0.15) {
   $props: ();
 
   @each $prop in $properties {

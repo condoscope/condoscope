@@ -135,7 +135,7 @@
     position: absolute;
     width: rem(20);
 
-    @include propertyAnimation(('background-color', 'border-color', 'box-shadow'));
+    @include property-animation(('background-color', 'border-color', 'box-shadow'));
 
     &.basic {
       --background-color: #{transparentize($color__basic-600, 0.92)};

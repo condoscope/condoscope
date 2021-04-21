@@ -74,4 +74,40 @@
       --color: #{$color__danger-500};
     }
   }
+
+  &__input {
+    background-color: $color__basic-200;
+    border: rem(1) solid var(--border-color, $color__basic-600);
+    border-radius: rem(4);
+    box-sizing: border-box;
+    color: var(--color, $color__basic-800);
+    font-size: rem(15);
+    font-weight: var(--font-weight, $font-weight__semi-bold);
+    line-height: rem(24);
+    padding: var(--vertical-padding) rem(16);
+    width: 100%;
+
+    @include property-animation(('background-color', 'border-color'));
+
+    &::placeholder {
+      color: #{$color__basic-600};
+      font-weight: #{$font-weight__regular};
+    }
+
+    &.small {
+      --vertical-padding: #{rem(3)};
+    }
+
+    &.medium {
+      --vertical-padding: #{rem(7)};
+    }
+
+    &.large {
+      --vertical-padding: #{rem(11)};
+    }
+
+    &--with-icon {
+      padding-right: calc(#{rem(16)} + #{rem(24)});
+    }
+  }
 }

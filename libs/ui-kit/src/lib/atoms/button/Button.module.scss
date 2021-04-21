@@ -13,7 +13,7 @@
   padding: var(--padding);
   text-transform: var(--text-transform, capitalize);
 
-  @include propertyAnimation(('background-color', 'border-color', 'box-shadow'));
+  @include property-animation(('background-color', 'border-color', 'box-shadow'));
 
   @include focus-state {
     background-color: var(--focus-background-color, inherit);
