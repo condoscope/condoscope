@@ -110,6 +110,19 @@
         }
       }
     }
+
+    &:disabled {
+      & + .checkbox__box {
+        --border-color: #{transparentize($color__basic-600, 0.76)};
+        --background-color: #{transparentize($color__basic-600, 0.84)};
+
+        cursor: not-allowed;
+      }
+
+      & ~ .checkbox__label {
+        --color: #{transparentize($color__basic-600, 0.52)};
+      }
+    }
   }
 
   &__box {
@@ -166,7 +179,7 @@
   }
 
   &__label {
-    color: $color__basic-800;
+    color: var(--color, $color__basic-800);
     line-height: rem(20);
   }
 }
