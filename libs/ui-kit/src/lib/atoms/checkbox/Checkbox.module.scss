@@ -41,6 +41,34 @@
         }
       }
 
+      & + .checkbox__box:hover {
+        background-color: var(--hover-background-color);
+
+        &.basic {
+          --hover-background-color: #{transparentize($color__basic-600, 0.84)};
+        }
+
+        &.primary {
+          --hover-background-color: #{transparentize($color__primary-500, 0.84)};
+        }
+
+        &.info {
+          --hover-background-color: #{transparentize($color__info-500, 0.84)};
+        }
+
+        &.success {
+          --hover-background-color: #{transparentize($color__success-500, 0.84)};
+        }
+
+        &.warning {
+          --hover-background-color: #{transparentize($color__warning-500, 0.84)};
+        }
+
+        &.danger {
+          --hover-background-color: #{transparentize($color__danger-500, 0.84)};
+        }
+      }
+
       &:checked {
         & + .checkbox__box {
           --border-color: var(--background-color);
@@ -96,44 +124,34 @@
 
     @include propertyAnimation(('background-color', 'border-color', 'box-shadow'));
 
-    &:hover {
-      background-color: var(--hover-background-color);
-    }
-
     &.basic {
       --background-color: #{transparentize($color__basic-600, 0.92)};
       --border-color: #{$color__basic-500};
-      --hover-background-color: #{transparentize($color__basic-600, 0.84)};
     }
 
     &.primary {
       --background-color: #{transparentize($color__primary-500, 0.92)};
       --border-color: #{$color__primary-500};
-      --hover-background-color: #{transparentize($color__primary-500, 0.84)};
     }
 
     &.info {
       --background-color: #{transparentize($color__info-500, 0.92)};
       --border-color: #{$color__info-500};
-      --hover-background-color: #{transparentize($color__info-500, 0.84)};
     }
 
     &.success {
       --background-color: #{transparentize($color__success-500, 0.92)};
       --border-color: #{$color__success-500};
-      --hover-background-color: #{transparentize($color__success-500, 0.84)};
     }
 
     &.warning {
       --background-color: #{transparentize($color__warning-500, 0.92)};
       --border-color: #{$color__warning-500};
-      --hover-background-color: #{transparentize($color__warning-500, 0.84)};
     }
 
     &.danger {
       --background-color: #{transparentize($color__danger-500, 0.92)};
       --border-color: #{$color__danger-500};
-      --hover-background-color: #{transparentize($color__danger-500, 0.84)};
     }
   }
 
