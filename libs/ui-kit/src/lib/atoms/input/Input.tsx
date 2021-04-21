@@ -22,7 +22,7 @@ export const Input: FC<Props> = (props: PropsWithChildren<Props>) => {
   const labelClasses = classNames(styles['input__label'], { [styles['input__label--empty']]: !children })
   const helpClasses = classNames(styles['input__help'])
   const inputWrapperClasses = classNames(styles['input__wrapper'])
-  const iconClasses = classNames(styles['input__icon'], styles[size], styles[appearance])
+  const iconClasses = classNames(styles['input__icon'], styles[size], styles[appearance], { [styles['input__icon--disabled']]: disabled })
   const inputClasses = classNames(styles['input__input'], styles[size], styles[appearance], { [styles['input__input--with-icon']]: Boolean(icon) })
 
   return (

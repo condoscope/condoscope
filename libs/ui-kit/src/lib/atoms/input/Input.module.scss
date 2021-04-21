@@ -73,6 +73,10 @@
     &.danger {
       --color: #{$color__danger-500};
     }
+
+    &--disabled {
+      color: #{transparentize($color__basic-600, 0.52)};
+    }
   }
 
   &__input {
@@ -94,9 +98,13 @@
       font-weight: #{$font-weight__regular};
     }
 
-    &:disabled,
-    &:disabled::placeholder {
-      color: transparentize($color__basic-600, 0.52);
+    &:disabled {
+      border-color: #{$color__basic-400};
+      cursor: not-allowed;
+
+      &::placeholder {
+        color: transparentize($color__basic-600, 0.52);
+      }
     }
 
     &:focus {
