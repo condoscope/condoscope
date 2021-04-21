@@ -159,4 +159,34 @@
       padding-right: calc(#{rem(16)} + #{rem(24)});
     }
   }
+
+  &__caption {
+    color: var(--color, $color__basic-600);
+    font-size: rem(12);
+    grid-column: 1 / 3;
+
+    &.basic {
+      --color: #{$color__basic-600};
+    }
+
+    &.primary {
+      --color: #{$color__primary-500};
+    }
+
+    &.info {
+      --color: #{$color__info-500};
+    }
+
+    &.success {
+      --color: #{$color__success-500};
+    }
+
+    &.warning {
+      --color: #{$color__warning-500};
+    }
+
+    &.danger {
+      --color: #{$color__danger-500};
+    }
+  }
 }

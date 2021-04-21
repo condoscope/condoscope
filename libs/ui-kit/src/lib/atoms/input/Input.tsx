@@ -24,6 +24,7 @@ export const Input: FC<Props> = (props: PropsWithChildren<Props>) => {
   const inputWrapperClasses = classNames(styles['input__wrapper'])
   const iconClasses = classNames(styles['input__icon'], styles[size], styles[appearance], { [styles['input__icon--disabled']]: disabled })
   const inputClasses = classNames(styles['input__input'], styles[size], styles[appearance], { [styles['input__input--with-icon']]: Boolean(icon) })
+  const captionClasses = classNames(styles['input__caption'], styles[appearance])
 
   return (
     <div className={groupClasses}>
@@ -42,7 +43,9 @@ export const Input: FC<Props> = (props: PropsWithChildren<Props>) => {
         </span>
       </div>
 
-      {caption}
+      <span className={captionClasses}>
+        {caption}
+      </span>
     </div>
   )
 }
