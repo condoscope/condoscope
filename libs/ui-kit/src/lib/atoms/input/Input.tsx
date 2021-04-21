@@ -1,4 +1,6 @@
 import React, { FC, PropsWithChildren } from 'react'
+import classNames from 'classnames'
+import styles from './Input.module.scss'
 
 type Props = {
   disabled?: boolean
@@ -14,8 +16,10 @@ type Props = {
 export const Input: FC<Props> = (props: PropsWithChildren<Props>) => {
   const { children, type, icon, caption, readonly, disabled, placeholder } = props
 
+  const groupClasses = classNames(styles['input'])
+
   return (
-    <div>
+    <div className={groupClasses}>
       <label>
         {children}
       </label>
