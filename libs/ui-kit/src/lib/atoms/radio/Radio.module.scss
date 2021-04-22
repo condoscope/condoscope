@@ -6,8 +6,86 @@
   font-family: $font__primary;
   padding-left: rem(26);
 
+  &:hover & {
+    &__outer-circle {
+      border-color: var(--hover-border-color, $color__primary-400);
+    }
+
+    &__inner-circle {
+      background-color: var(--hover-background-color, $color__primary-400);
+    }
+  }
+
   &__input {
     @extend %visually-hidden;
+
+    &:enabled {
+      @include focus-state {
+
+        & + .radio__outer-circle {
+          box-shadow: #{0 0 0 rem(6) transparentize($color__basic-600, 0.84), inset 0 0 0 100vmax transparentize($color__basic-600, 0.84)};
+        }
+
+        &:checked {
+          & + .radio__outer-circle {
+
+            &.basic,
+            &.primary {
+              --border-color: #{$color__primary-700};
+            }
+
+            &.info {
+              --border-color: #{$color__info-700};
+            }
+
+            &.success {
+              --border-color: #{$color__success-700};
+            }
+
+            &.warning {
+              --border-color: #{$color__warning-700};
+            }
+
+            &.danger {
+              --border-color: #{$color__danger-700};
+            }
+          }
+
+          & ~ .radio__inner-circle {
+
+            &.basic,
+            &.primary {
+              --background-color: #{$color__primary-600};
+            }
+
+            &.info {
+              --background-color: #{$color__info-600};
+            }
+
+            &.success {
+              --background-color: #{$color__success-600};
+            }
+
+            &.warning {
+              --background-color: #{$color__warning-600};
+            }
+
+            &.danger {
+              --background-color: #{$color__danger-600};
+            }
+          }
+        }
+
+        &:not(:checked) {
+          & + .radio__outer-circle {
+
+            &.basic {
+              --border-color: #{$color__basic-600};
+            }
+          }
+        }
+      }
+    }
   }
 
   &__outer-circle {
@@ -20,29 +98,36 @@
     position: absolute;
     width: rem(20);
 
+    @include property-animation(('box-shadow', 'border-color', 'background-color'));
+
     &.primary {
       --background-color: #{transparentize($color__primary-500, 0.84)};
       --border-color: #{$color__primary-500};
+      --hover-border-color: #{$color__primary-400};
     }
 
     &.info {
       --background-color: #{transparentize($color__info-500, 0.84)};
       --border-color: #{$color__info-500};
+      --hover-border-color: #{$color__info-400};
     }
 
     &.success {
       --background-color: #{transparentize($color__success-500, 0.84)};
       --border-color: #{$color__success-500};
+      --hover-border-color: #{$color__success-400};
     }
 
     &.warning {
       --background-color: #{transparentize($color__warning-500, 0.84)};
       --border-color: #{$color__warning-500};
+      --hover-border-color: #{$color__warning-400};
     }
 
     &.danger {
       --background-color: #{transparentize($color__danger-500, 0.84)};
       --border-color: #{$color__danger-500};
+      --hover-border-color: #{$color__danger-400};
     }
 
     &.checked {
@@ -83,27 +168,34 @@
     position: absolute;
     width: rem(12);
 
+    @include property-animation(('background-color'));
+
     &.checked {
       display: inline;
 
       &.primary {
         --background-color: #{$color__primary-500};
+        --hover-background-color: #{$color__primary-400};
       }
 
       &.info {
         --background-color: #{$color__info-500};
+        --hover-background-color: #{$color__info-400};
       }
 
       &.success {
         --background-color: #{$color__success-500};
+        --hover-background-color: #{$color__success-400};
       }
 
       &.warning {
         --background-color: #{$color__warning-500};
+        --hover-background-color: #{$color__warning-400};
       }
 
       &.danger {
         --background-color: #{$color__danger-500};
+        --hover-background-color: #{$color__danger-400};
       }
     }
   }
