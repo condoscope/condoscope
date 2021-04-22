@@ -20,6 +20,31 @@
     position: absolute;
     width: rem(20);
 
+    &.primary {
+      --background-color: #{transparentize($color__primary-500, 0.84)};
+      --border-color: #{$color__primary-500};
+    }
+
+    &.info {
+      --background-color: #{transparentize($color__info-500, 0.84)};
+      --border-color: #{$color__info-500};
+    }
+
+    &.success {
+      --background-color: #{transparentize($color__success-500, 0.84)};
+      --border-color: #{$color__success-500};
+    }
+
+    &.warning {
+      --background-color: #{transparentize($color__warning-500, 0.84)};
+      --border-color: #{$color__warning-500};
+    }
+
+    &.danger {
+      --background-color: #{transparentize($color__danger-500, 0.84)};
+      --border-color: #{$color__danger-500};
+    }
+
     &.checked {
       --background-color: transparent;
 
@@ -60,6 +85,26 @@
 
     &.checked {
       display: inline;
+
+      &.primary {
+        --background-color: #{$color__primary-500};
+      }
+
+      &.info {
+        --background-color: #{$color__info-500};
+      }
+
+      &.success {
+        --background-color: #{$color__success-500};
+      }
+
+      &.warning {
+        --background-color: #{$color__warning-500};
+      }
+
+      &.danger {
+        --background-color: #{$color__danger-500};
+      }
     }
   }
 

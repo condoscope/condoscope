@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { boolean, text } from '@storybook/addon-knobs'
+import { boolean, select, text } from '@storybook/addon-knobs'
 import { Radio } from './Radio'
 
 export default {
@@ -12,6 +12,14 @@ export const regular: FC = () => {
     <Radio
       checked={boolean('Checked', false)}
       disabled={boolean('Disabled', false)}
+      appearance={select('Appearance', {
+        Basic: 'basic',
+        Primary: 'primary',
+        Info: 'info',
+        Success: 'success',
+        Warning: 'warning',
+        Danger: 'danger',
+      }, 'basic')}
     >
       {text('Label', 'Label')}
     </Radio>
