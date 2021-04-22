@@ -23,6 +23,26 @@
   &__input {
     @extend %visually-hidden;
 
+    &:checked {
+      & ~ .radio__outer-circle {
+        --background-color: transparent;
+      }
+
+      & ~ .radio__inner-circle {
+        display: inline;
+      }
+
+      &:disabled {
+        & + .radio__outer-circle {
+          --border-color: #{transparentize($color__basic-600, 0.52)};
+        }
+
+        & ~ .radio__inner-circle {
+          --background-color: #{transparentize($color__basic-600, 0.52)};
+        }
+      }
+    }
+
     &:enabled {
       @include focus-state {
 
@@ -51,12 +71,7 @@
 
       &:checked {
         & + .radio__outer-circle {
-          --background-color: transparent;
           --border-color: var(--checked-border-color, $color__primary-500);
-        }
-
-        & ~ .radio__inner-circle {
-          display: inline;
         }
       }
     }
@@ -64,11 +79,8 @@
     &:disabled {
 
       & + .radio__outer-circle {
-        --border-color: #{var(--disabled-color, transparentize($color__basic-600, 0.84))};
-      }
-
-      & ~ .radio__inner-circle {
-        --background-color: var(--disabled-color, transparentize($color__basic-600, 0.92));
+        --border-color: #{transparentize($color__basic-600, 0.84)};
+        --background-color: #{transparentize($color__basic-600, 0.92)};
       }
     }
   }
