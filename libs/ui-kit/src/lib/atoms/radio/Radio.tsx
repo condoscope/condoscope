@@ -13,8 +13,8 @@ export const Radio: FC<Props> = (props: PropsWithChildren<Props>) => {
 
   const radioClasses = classNames(styles['radio'], { [styles['disabled']]: disabled })
   const inputClasses = classNames(styles['radio__input'])
-  const outerCircleClasses = classNames(styles['radio__outer-circle'], styles[appearance], { [styles['checked']]: checked, [styles['disabled']]: disabled })
-  const innerCircleClasses = classNames(styles['radio__inner-circle'], styles[appearance], { [styles['checked']]: checked, [styles['disabled']]: disabled })
+  const outerCircleClasses = classNames(styles['radio__outer-circle'], styles[appearance])
+  const innerCircleClasses = classNames(styles['radio__inner-circle'], styles[appearance])
   const labelClasses = classNames(styles['radio__label'])
 
   return (

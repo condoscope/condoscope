@@ -10,13 +10,13 @@
     cursor: not-allowed;
   }
 
-  &:hover & {
+  &:not(.disabled):hover & {
     &__outer-circle {
-      border-color: var(--hover-border-color, $color__primary-400);
+      border-color: #{var(--hover-border-color, $color__primary-400)};
     }
 
     &__inner-circle {
-      background-color: var(--hover-background-color, $color__primary-400);
+      background-color: #{var(--hover-background-color, $color__primary-400)};
     }
   }
 
@@ -27,66 +27,36 @@
       @include focus-state {
 
         & + .radio__outer-circle {
-          box-shadow: #{0 0 0 rem(6) transparentize($color__basic-600, 0.84), inset 0 0 0 100vmax transparentize($color__basic-600, 0.84)};
+          --background-color: #{var(--focus-background-color, transparentize($color__basic-600, 0.6))};
+
+          box-shadow: 0 0 0 rem(6) transparentize($color__basic-600, 0.84);
         }
 
         &:checked {
           & + .radio__outer-circle {
-
-            &.basic,
-            &.primary {
-              --border-color: #{$color__primary-700};
-            }
-
-            &.info {
-              --border-color: #{$color__info-700};
-            }
-
-            &.success {
-              --border-color: #{$color__success-700};
-            }
-
-            &.warning {
-              --border-color: #{$color__warning-700};
-            }
-
-            &.danger {
-              --border-color: #{$color__danger-700};
-            }
+            --border-color: var(--checked-focus-border-color, $color__primary-700);
           }
 
           & ~ .radio__inner-circle {
-
-            &.basic,
-            &.primary {
-              --background-color: #{$color__primary-600};
-            }
-
-            &.info {
-              --background-color: #{$color__info-600};
-            }
-
-            &.success {
-              --background-color: #{$color__success-600};
-            }
-
-            &.warning {
-              --background-color: #{$color__warning-600};
-            }
-
-            &.danger {
-              --background-color: #{$color__danger-600};
-            }
+            --background-color: var(--focus-background-color, $color__primary-600);
           }
         }
 
         &:not(:checked) {
           & + .radio__outer-circle {
-
-            &.basic {
-              --border-color: #{$color__basic-600};
-            }
+            --border-color: var(--focus-border-color, $color__primary-600);
           }
+        }
+      }
+
+      &:checked {
+        & + .radio__outer-circle {
+          --background-color: transparent;
+          --border-color: var(--checked-border-color, $color__primary-500);
+        }
+
+        & ~ .radio__inner-circle {
+          display: inline;
         }
       }
     }
@@ -94,15 +64,11 @@
     &:disabled {
 
       & + .radio__outer-circle {
-        border-color: var(--disabled-color, transparentize($color__basic-600, 0.52));
+        --border-color: #{var(--disabled-color, transparentize($color__basic-600, 0.84))};
       }
 
       & ~ .radio__inner-circle {
-        background-color: var(--disabled-color, transparentize($color__basic-600, 0.52));
-      }
-
-      & ~ .radio__label {
-        color: var(--disabled-color, transparentize($color__basic-600, 0.52))
+        --background-color: var(--disabled-color, transparentize($color__basic-600, 0.92));
       }
     }
   }
@@ -119,62 +85,65 @@
 
     @include property-animation(('box-shadow', 'border-color', 'background-color'));
 
+    &.basic {
+      --checked-border-color: #{$color__primary-500};
+      --focus-border-color: #{$color__basic-600};
+      --checked-focus-border-color: #{$color__primary-600};
+    }
+
     &.primary {
       --background-color: #{transparentize($color__primary-500, 0.84)};
+      --focus-background-color: #{transparentize($color__primary-500, 0.6)};
+
       --border-color: #{$color__primary-500};
+      --checked-border-color: #{$color__primary-500};
+      --checked-focus-border-color: #{$color__primary-700};
       --hover-border-color: #{$color__primary-400};
+      --focus-border-color: #{$color__primary-600};
     }
 
     &.info {
       --background-color: #{transparentize($color__info-500, 0.84)};
+      --focus-background-color: #{transparentize($color__info-500, 0.6)};
+
       --border-color: #{$color__info-500};
+      --checked-border-color: #{$color__info-500};
+      --checked-focus-border-color: #{$color__info-700};
       --hover-border-color: #{$color__info-400};
+      --focus-border-color: #{$color__info-600};
     }
 
     &.success {
       --background-color: #{transparentize($color__success-500, 0.84)};
+      --focus-background-color: #{transparentize($color__success-500, 0.6)};
+
       --border-color: #{$color__success-500};
+      --checked-border-color: #{$color__success-500};
+      --checked-focus-border-color: #{$color__success-700};
       --hover-border-color: #{$color__success-400};
+      --focus-border-color: #{$color__success-600};
     }
 
     &.warning {
       --background-color: #{transparentize($color__warning-500, 0.84)};
+      --focus-background-color: #{transparentize($color__warning-500, 0.6)};
+
       --border-color: #{$color__warning-500};
       --hover-border-color: #{$color__warning-400};
+      --checked-focus-border-color: #{$color__warning-700};
+      --checked-border-color: #{$color__warning-500};
+      --focus-border-color: #{$color__warning-600};
     }
 
     &.danger {
       --background-color: #{transparentize($color__danger-500, 0.84)};
+      --focus-background-color: #{transparentize($color__danger-500, 0.6)};
+
       --border-color: #{$color__danger-500};
+      --checked-border-color: #{$color__danger-500};
+      --checked-focus-border-color: #{$color__danger-700};
       --hover-border-color: #{$color__danger-400};
-    }
-
-    &.checked {
-      --background-color: transparent;
-
-      &.basic {
-        --border-color: #{$color__primary-500};
-      }
-
-      &.primary {
-        --border-color: #{$color__primary-500};
-      }
-
-      &.info {
-        --border-color: #{$color__info-500};
-      }
-
-      &.success {
-        --border-color: #{$color__success-500};
-      }
-
-      &.warning {
-        --border-color: #{$color__warning-500};
-      }
-
-      &.danger {
-        --border-color: #{$color__danger-500};
-      }
+      --focus-border-color: #{$color__danger-600};
     }
   }
 
@@ -189,33 +158,34 @@
 
     @include property-animation(('background-color'));
 
-    &.checked {
-      display: inline;
+    &.primary {
+      --background-color: #{$color__primary-500};
+      --focus-background-color: #{$color__primary-600};
+      --hover-background-color: #{$color__primary-400};
+    }
 
-      &.primary {
-        --background-color: #{$color__primary-500};
-        --hover-background-color: #{$color__primary-400};
-      }
+    &.info {
+      --background-color: #{$color__info-500};
+      --focus-background-color: #{$color__primary-600};
+      --hover-background-color: #{$color__info-400};
+    }
 
-      &.info {
-        --background-color: #{$color__info-500};
-        --hover-background-color: #{$color__info-400};
-      }
+    &.success {
+      --background-color: #{$color__success-500};
+      --focus-background-color: #{$color__success-600};
+      --hover-background-color: #{$color__success-400};
+    }
 
-      &.success {
-        --background-color: #{$color__success-500};
-        --hover-background-color: #{$color__success-400};
-      }
+    &.warning {
+      --background-color: #{$color__warning-500};
+      --focus-background-color: #{$color__warning-600};
+      --hover-background-color: #{$color__warning-400};
+    }
 
-      &.warning {
-        --background-color: #{$color__warning-500};
-        --hover-background-color: #{$color__warning-400};
-      }
-
-      &.danger {
-        --background-color: #{$color__danger-500};
-        --hover-background-color: #{$color__danger-400};
-      }
+    &.danger {
+      --background-color: #{$color__danger-500};
+      --focus-background-color: #{$color__danger-600};
+      --hover-background-color: #{$color__danger-400};
     }
   }
 
