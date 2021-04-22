@@ -1,0 +1,8 @@
+@import '__design/settings';
+@import '__design/tools';
+
+.radio {
+  &__input {
+    @extend %visually-hidden;
+  }
+}
