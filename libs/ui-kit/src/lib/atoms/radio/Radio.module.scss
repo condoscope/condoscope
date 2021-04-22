@@ -6,6 +6,10 @@
   font-family: $font__primary;
   padding-left: rem(26);
 
+  &.disabled {
+    cursor: not-allowed;
+  }
+
   &:hover & {
     &__outer-circle {
       border-color: var(--hover-border-color, $color__primary-400);
@@ -84,6 +88,21 @@
             }
           }
         }
+      }
+    }
+
+    &:disabled {
+
+      & + .radio__outer-circle {
+        border-color: var(--disabled-color, transparentize($color__basic-600, 0.52));
+      }
+
+      & ~ .radio__inner-circle {
+        background-color: var(--disabled-color, transparentize($color__basic-600, 0.52));
+      }
+
+      & ~ .radio__label {
+        color: var(--disabled-color, transparentize($color__basic-600, 0.52))
       }
     }
   }
