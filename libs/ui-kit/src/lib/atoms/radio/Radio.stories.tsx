@@ -9,7 +9,10 @@ export default {
 
 export const regular: FC = () => {
   return (
-    <Radio disabled={boolean('Disabled', false)}>
+    <Radio
+      checked={boolean('Checked', false)}
+      disabled={boolean('Disabled', false)}
+    >
       {text('Label', 'Label')}
     </Radio>
   )

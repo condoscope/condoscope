@@ -2,7 +2,39 @@
 @import '__design/tools';
 
 .radio {
+  cursor: pointer;
+  font-family: $font__primary;
+  padding-left: rem(26);
+
   &__input {
     @extend %visually-hidden;
+  }
+
+  &__outer-circle {
+    border: rem(1) solid var(--border-color, $color__primary-500);
+    border-radius: 50%;
+    box-sizing: border-box;
+    height: rem(20);
+    margin-left: rem(-26);
+    position: absolute;
+    width: rem(20);
+  }
+
+  &__inner-circle {
+    background-color: var(--background-color, $color__primary-500);
+    border-radius: 50%;
+    display: none;
+    height: rem(12);
+    margin: rem(4) 0 0 rem(-22);
+    position: absolute;
+    width: rem(12);
+
+    &.checked {
+      display: inline;
+    }
+  }
+
+  &__label {
+    line-height: rem(20);
   }
 }
