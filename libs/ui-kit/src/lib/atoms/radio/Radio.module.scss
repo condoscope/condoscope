@@ -11,13 +11,42 @@
   }
 
   &__outer-circle {
-    border: rem(1) solid var(--border-color, $color__primary-500);
+    background-color: var(--background-color, transparentize($color__basic-500, 0.84));
+    border: rem(1) solid var(--border-color, $color__basic-500);
     border-radius: 50%;
     box-sizing: border-box;
     height: rem(20);
     margin-left: rem(-26);
     position: absolute;
     width: rem(20);
+
+    &.checked {
+      --background-color: transparent;
+
+      &.basic {
+        --border-color: #{$color__primary-500};
+      }
+
+      &.primary {
+        --border-color: #{$color__primary-500};
+      }
+
+      &.info {
+        --border-color: #{$color__info-500};
+      }
+
+      &.success {
+        --border-color: #{$color__success-500};
+      }
+
+      &.warning {
+        --border-color: #{$color__warning-500};
+      }
+
+      &.danger {
+        --border-color: #{$color__danger-500};
+      }
+    }
   }
 
   &__inner-circle {
