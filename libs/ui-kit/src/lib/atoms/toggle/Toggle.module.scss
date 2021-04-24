@@ -15,43 +15,59 @@
     &.checked {
       background-color: #{var(--checked-background-color, $color__primary-500)};
       border-color: #{var(--checked-background-color, $color__primary-500)};
-      color: #{var(--checked-background-color, $color__primary-500)};
+      color: #{var(--checked-color, $color__primary-500)};
     }
 
     &.primary {
       --border-color: #{$color__primary-500};
       --background-color: #{transparentize($color__primary-500, 0.84)};
       --checked-background-color: #{$color__primary-500};
+      --checked-color: #{$color__primary-500};
     }
 
     &.info {
       --border-color: #{$color__info-500};
       --background-color: #{transparentize($color__info-500, 0.84)};
       --checked-background-color: #{$color__info-500};
+      --checked-color: #{$color__info-500};
     }
 
     &.success {
       --border-color: #{$color__success-500};
       --background-color: #{transparentize($color__success-500, 0.84)};
       --checked-background-color: #{$color__success-500};
+      --checked-color: #{$color__success-500};
     }
 
     &.warning {
       --border-color: #{$color__warning-500};
       --background-color: #{transparentize($color__warning-500, 0.84)};
       --checked-background-color: #{$color__warning-500};
+      --checked-color: #{$color__warning-500};
     }
 
     &.danger {
       --border-color: #{$color__danger-500};
       --background-color: #{transparentize($color__danger-500, 0.84)};
       --checked-background-color: #{$color__danger-500};
+      --checked-color: #{$color__danger-500};
+    }
+
+    &:disabled {
+      --border-color: #{transparentize($color__basic-600, 0.68)};
+      --background-color: #{transparentize($color__basic-600, 0.84)};
+      --checked-background-color: #{transparentize($color__basic-600, 0.84)};
+      --checked-color: #{$color__basic-100};
+
+      & > .toggle__switch {
+        --switch-background-color: #{transparentize($color__basic-600, 0.52)};
+      }
     }
   }
 
   &__switch {
     align-items: center;
-    background-color: $color__basic-100;
+    background-color: var(--switch-background-color, $color__basic-100);
     border-radius: 50%;
     display: flex;
     height: rem(28);

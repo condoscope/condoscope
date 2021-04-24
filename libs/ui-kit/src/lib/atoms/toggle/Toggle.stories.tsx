@@ -20,6 +20,7 @@ export const regular: FC = () => {
         Warning: 'warning',
         Danger: 'danger',
       }, 'basic')}
+      disabled={boolean('Disabled', false)}
     />
   )
 }

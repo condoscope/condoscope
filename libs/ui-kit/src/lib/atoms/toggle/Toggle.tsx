@@ -6,11 +6,12 @@ import { CheckmarkIcon } from '../icons'
 type Props = {
   appearance?: 'basic' | 'primary' | 'info' | 'success' | 'warning' | 'danger'
   checked?: boolean
+  disabled: boolean
   htmlId: string
 }
 
 export const Toggle: FC<Props> = (props: PropsWithChildren<Props>) => {
-  const { checked, htmlId, appearance } = props
+  const { checked, htmlId, appearance, disabled } = props
 
   const wrapperClasses = classNames(styles['toggle'])
   const buttonClasses = classNames(styles['toggle__button'], styles[appearance], { [styles['checked']]: checked })
@@ -25,7 +26,7 @@ export const Toggle: FC<Props> = (props: PropsWithChildren<Props>) => {
 
   return (
     <label htmlFor={htmlId} className={wrapperClasses}>
-      <button id={htmlId} type="button" role="switch" aria-checked={checked} className={buttonClasses}>
+      <button id={htmlId} type="button" role="switch" aria-checked={checked} disabled={disabled} className={buttonClasses}>
         <span className={switchClasses}>
           {checkmark}
         </span>
@@ -37,4 +38,5 @@ export const Toggle: FC<Props> = (props: PropsWithChildren<Props>) => {
 Toggle.defaultProps = {
   appearance: 'basic',
   checked: false,
+  disabled: false,
 }
