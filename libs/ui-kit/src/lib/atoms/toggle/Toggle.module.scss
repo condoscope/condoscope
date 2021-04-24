@@ -1,3 +1,76 @@
+@import '__design/settings';
+@import '__design/tools';
+
 .toggle {
-  /* keep */
+
+  &__button {
+    background-color: var(--background-color, transparentize($color__basic-500, 0.84));
+    border: rem(1) solid var(--border-color, $color__basic-500);
+    border-radius: rem(100);
+    cursor: pointer;
+    height: rem(32);
+    position: relative;
+    width: rem(52);
+
+    &.checked {
+      background-color: #{var(--checked-background-color, $color__primary-500)};
+      border-color: #{var(--checked-background-color, $color__primary-500)};
+      color: #{var(--checked-background-color, $color__primary-500)};
+    }
+
+    &.primary {
+      --border-color: #{$color__primary-500};
+      --background-color: #{transparentize($color__primary-500, 0.84)};
+      --checked-background-color: #{$color__primary-500};
+    }
+
+    &.info {
+      --border-color: #{$color__info-500};
+      --background-color: #{transparentize($color__info-500, 0.84)};
+      --checked-background-color: #{$color__info-500};
+    }
+
+    &.success {
+      --border-color: #{$color__success-500};
+      --background-color: #{transparentize($color__success-500, 0.84)};
+      --checked-background-color: #{$color__success-500};
+    }
+
+    &.warning {
+      --border-color: #{$color__warning-500};
+      --background-color: #{transparentize($color__warning-500, 0.84)};
+      --checked-background-color: #{$color__warning-500};
+    }
+
+    &.danger {
+      --border-color: #{$color__danger-500};
+      --background-color: #{transparentize($color__danger-500, 0.84)};
+      --checked-background-color: #{$color__danger-500};
+    }
+  }
+
+  &__switch {
+    align-items: center;
+    background-color: $color__basic-100;
+    border-radius: 50%;
+    display: flex;
+    height: rem(28);
+    justify-content: center;
+    left: rem(1);
+    position: absolute;
+    top: rem(1);
+    width: rem(28);
+
+    @include property-animation(('left'), 0.2, linear);
+
+    &.checked {
+      left: rem(21);
+    }
+  }
+
+  &__checkmark {
+    display: block;
+    height: rem(12);
+    width: rem(12);
+  }
 }

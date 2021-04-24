@@ -1,6 +1,6 @@
 /* stylelint-disable order/order */
 
-@mixin property-animation($properties, $duration: 0.15) {
+@mixin property-animation($properties, $duration: 0.15, $timing-func: ease-in) {
   $props: ();
 
   @each $prop in $properties {
@@ -9,5 +9,5 @@
 
   transition-duration: #{$duration}s;
   transition-property: $props;
-  transition-timing-function: ease-in;
+  transition-timing-function: $timing-func;
 }
