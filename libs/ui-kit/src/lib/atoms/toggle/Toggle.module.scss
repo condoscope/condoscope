@@ -4,53 +4,89 @@
 .toggle {
 
   &__button {
-    background-color: var(--background-color, transparentize($color__basic-500, 0.84));
+    background-color: var(--background-color, transparentize($color__basic-600, 0.84));
     border: rem(1) solid var(--border-color, $color__basic-500);
     border-radius: rem(100);
+    color: var(--checked-color, $color__basic-100);
     cursor: pointer;
     height: rem(32);
     position: relative;
     width: rem(52);
 
-    &.checked {
-      background-color: #{var(--checked-background-color, $color__primary-500)};
-      border-color: #{var(--checked-background-color, $color__primary-500)};
-      color: #{var(--checked-color, $color__primary-500)};
-    }
+    @include property-animation(('box-shadow', 'border-color', 'background-color', 'color'));
 
-    &.primary {
-      --border-color: #{$color__primary-500};
-      --background-color: #{transparentize($color__primary-500, 0.84)};
-      --checked-background-color: #{$color__primary-500};
-      --checked-color: #{$color__primary-500};
-    }
+    &:enabled {
+      &:hover {
+        background-color: var(--hover-background-color, transparentize($color__primary-500, 0.84));
+        border-color: var(--hover-border-color, $color__primary-400);
+        box-shadow: 0 0 0 rem(4) transparentize($color__basic-600, 0.84);
+        color: var(--hover-checked-background-color, $color__primary-400);
+      }
 
-    &.info {
-      --border-color: #{$color__info-500};
-      --background-color: #{transparentize($color__info-500, 0.84)};
-      --checked-background-color: #{$color__info-500};
-      --checked-color: #{$color__info-500};
-    }
+      &.checked {
+        background-color: var(--checked-background-color, $color__primary-500);
+        border-color: var(--checked-background-color, $color__primary-500);
 
-    &.success {
-      --border-color: #{$color__success-500};
-      --background-color: #{transparentize($color__success-500, 0.84)};
-      --checked-background-color: #{$color__success-500};
-      --checked-color: #{$color__success-500};
-    }
+        &:hover {
+          background-color: var(--hover-checked-background-color, $color__primary-400);
+          border-color: var(--hover-checked-border-color, $color__primary-400);
+        }
+      }
 
-    &.warning {
-      --border-color: #{$color__warning-500};
-      --background-color: #{transparentize($color__warning-500, 0.84)};
-      --checked-background-color: #{$color__warning-500};
-      --checked-color: #{$color__warning-500};
-    }
+      &.basic {
+        --checked-color: #{$color__primary-500};
+      }
 
-    &.danger {
-      --border-color: #{$color__danger-500};
-      --background-color: #{transparentize($color__danger-500, 0.84)};
-      --checked-background-color: #{$color__danger-500};
-      --checked-color: #{$color__danger-500};
+      &.primary {
+        --border-color: #{$color__primary-500};
+        --background-color: #{transparentize($color__primary-500, 0.84)};
+        --checked-background-color: #{$color__primary-500};
+        --checked-color: #{$color__primary-500};
+      }
+
+      &.info {
+        --border-color: #{$color__info-500};
+        --background-color: #{transparentize($color__info-500, 0.84)};
+        --checked-background-color: #{$color__info-500};
+        --checked-color: #{$color__info-500};
+        --hover-border-color: #{$color__info-400};
+        --hover-background-color: #{transparentize($color__info-500, 0.84)};
+        --hover-checked-background-color: #{$color__info-400};
+        --hover-checked-border-color: #{$color__info-400};
+      }
+
+      &.success {
+        --border-color: #{$color__success-500};
+        --background-color: #{transparentize($color__success-500, 0.84)};
+        --checked-background-color: #{$color__success-500};
+        --checked-color: #{$color__success-500};
+        --hover-border-color: #{$color__success-400};
+        --hover-background-color: #{transparentize($color__success-500, 0.84)};
+        --hover-checked-background-color: #{$color__success-400};
+        --hover-checked-border-color: #{$color__success-400};
+      }
+
+      &.warning {
+        --border-color: #{$color__warning-500};
+        --background-color: #{transparentize($color__warning-500, 0.84)};
+        --checked-background-color: #{$color__warning-500};
+        --checked-color: #{$color__warning-500};
+        --hover-border-color: #{$color__warning-400};
+        --hover-background-color: #{transparentize($color__warning-500, 0.84)};
+        --hover-checked-background-color: #{$color__warning-400};
+        --hover-checked-border-color: #{$color__warning-400};
+      }
+
+      &.danger {
+        --border-color: #{$color__danger-500};
+        --background-color: #{transparentize($color__danger-500, 0.84)};
+        --checked-background-color: #{$color__danger-500};
+        --checked-color: #{$color__danger-500};
+        --hover-border-color: #{$color__danger-400};
+        --hover-background-color: #{transparentize($color__danger-500, 0.84)};
+        --hover-checked-background-color: #{$color__danger-400};
+        --hover-checked-border-color: #{$color__danger-400};
+      }
     }
 
     &:disabled {
