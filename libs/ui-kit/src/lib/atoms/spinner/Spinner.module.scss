@@ -1,0 +1,61 @@
+@import '__design/settings';
+@import '__design/tools';
+@import '__design/objects';
+
+.spinner {
+  border-color: var(--color, $color__primary-500) transparent var(--color, $color__primary-500) var(--color, $color__primary-500);
+  border-radius: 50%;
+  border-style: solid;
+  border-width: var(--border-width, rem(4));
+  box-sizing: border-box;
+  display: block;
+  height: var(--size, rem(16));
+  width: var(--size, rem(16));
+
+  @include spin-animation;
+
+  &.giant {
+    --size: #{rem(32)};
+    --border-width: #{rem(4)};
+  }
+
+  &.large {
+    --size: #{rem(28)};
+    --border-width: #{rem(3.5)};
+  }
+
+  &.medium {
+    --size: #{rem(24)};
+    --border-width: #{rem(3)};
+  }
+
+  &.small {
+    --size: #{rem(20)};
+    --border-width: #{rem(2.5)};
+  }
+
+  &.tiny {
+    --size: #{rem(16)};
+    --border-width: #{rem(2)};
+  }
+
+  &.primary {
+    --color: #{$color__primary-500};
+  }
+
+  &.info {
+    --color: #{$color__info-500};
+  }
+
+  &.success {
+    --color: #{$color__success-500};
+  }
+
+  &.warning {
+    --color: #{$color__warning-500};
+  }
+
+  &.danger {
+    --color: #{$color__danger-500};
+  }
+}
