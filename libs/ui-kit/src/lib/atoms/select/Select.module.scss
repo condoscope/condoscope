@@ -1,0 +1,34 @@
+@import '__design/settings';
+@import '__design/tools';
+
+.select {
+
+  &__selected {
+    align-items: center;
+    background-color: $color__basic-200;
+    border: rem(1) solid $color__basic-400;
+    border-radius: rem(4);
+    box-sizing: border-box;
+    color: $color__basic-800;
+    cursor: pointer;
+    display: flex;
+    font-family: $font__primary;
+    font-weight: $font-weight__semi-bold;
+    height: rem(40);
+    list-style: none;
+    padding: rem(7) rem(35) rem(7) rem(18);
+    position: relative;
+
+    &::marker {
+      display: none;
+    }
+  }
+
+  &__chevron {
+    color: $color__basic-600;
+    height: rem(7);
+    position: absolute;
+    right: rem(17);
+    width: rem(10);
+  }
+}
