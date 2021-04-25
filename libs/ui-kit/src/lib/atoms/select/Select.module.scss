@@ -3,6 +3,15 @@
 
 .select {
 
+  &__group {
+
+    &[open] {
+      & .select__chevron {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
   &__selected {
     align-items: center;
     background-color: $color__basic-200;
@@ -30,5 +39,7 @@
     position: absolute;
     right: rem(17);
     width: rem(10);
+
+    @include property-animation(('transform'))
   }
 }
