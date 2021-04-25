@@ -5,7 +5,7 @@ import { StarIcon } from '../icons'
 
 export default {
   component: Input,
-  title: 'Input',
+  title: 'Atoms/Input',
 }
 
 export const regular: FC = () => {

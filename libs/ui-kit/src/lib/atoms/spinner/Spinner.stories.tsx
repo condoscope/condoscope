@@ -4,7 +4,7 @@ import { Spinner } from './Spinner'
 
 export default {
   component: Spinner,
-  title: 'Spinner',
+  title: 'Atoms/Spinner',
 }
 
 export const regular: FC = () => {

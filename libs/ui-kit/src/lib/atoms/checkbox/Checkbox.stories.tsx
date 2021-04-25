@@ -4,7 +4,7 @@ import { Checkbox } from './Checkbox'
 
 export default {
   component: Checkbox,
-  title: 'Checkbox',
+  title: 'Atoms/Checkbox',
 }
 
 export const regular: FC = () => {

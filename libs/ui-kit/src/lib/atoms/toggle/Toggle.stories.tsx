@@ -4,7 +4,7 @@ import { Toggle } from './Toggle'
 
 export default {
   component: Toggle,
-  title: 'Toggle',
+  title: 'Atoms/Toggle',
 }
 
 export const regular: FC = () => {

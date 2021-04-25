@@ -4,7 +4,7 @@ import { Radio } from './Radio'
 
 export default {
   component: Radio,
-  title: 'Radio',
+  title: 'Atoms/Radio',
 }
 
 export const regular: FC = () => {
