@@ -6,10 +6,11 @@ import { ChevronIcon } from '../icons'
 type Props = {
   appearance?: 'basic' | 'primary' | 'info' | 'success' | 'warning' | 'danger'
   placeholder?: string
+  items?: { key: string; value: string }[]
 }
 
 export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
-  const { appearance, placeholder } = props
+  const { appearance, placeholder, items } = props
 
   const groupClasses = classNames(styles['select__group'])
   const selectedClasses = classNames(styles['select__selected'], styles[appearance])
@@ -18,6 +19,13 @@ export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
   const optionClasses = classNames(styles['select__option'])
   const optionInputClasses = classNames(styles['select__input'])
 
+  const options = items.map((item) => (
+    <label key={item.key} className={optionClasses}>
+      <input type="radio" className={optionInputClasses} />
+      {item.value}
+    </label>
+  ))
+
   return (
     <details className={groupClasses}>
       <summary className={selectedClasses}>
@@ -25,14 +33,7 @@ export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
         <ChevronIcon className={chevronClasses} />
       </summary>
       <div className={listClasses}>
-        <label className={optionClasses}>
-          <input type="radio" className={optionInputClasses} />
-          First
-        </label>
-        <label className={optionClasses}>
-          <input type="radio" className={optionInputClasses} />
-          Second
-        </label>
+        {options}
       </div>
     </details>
   )
@@ -41,4 +42,5 @@ export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
 Select.defaultProps = {
   appearance: 'basic',
   placeholder: '--',
+  items: [],
 }
