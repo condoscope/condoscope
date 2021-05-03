@@ -53,21 +53,6 @@ export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
       {list}
     </div>
   )
-
-  // return (
-  //   <div
-  //     ref={selectRef}
-  //     className={groupClasses}
-  //   >
-  //     <summary className={selectedClasses}>
-  //       {placeholder}
-  //       <ChevronIcon className={chevronClasses} />
-  //     </summary>
-  //     <ul className={listClasses}>
-  //       {options}
-  //     </ul>
-  //   </div>
-  // )
 }
 
 Select.defaultProps = {
