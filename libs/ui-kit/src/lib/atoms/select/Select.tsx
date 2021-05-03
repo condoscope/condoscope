@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren } from 'react'
+import React, { FC, PropsWithChildren, useEffect, useRef } from 'react'
 import classNames from 'classnames'
 import styles from './Select.module.scss'
 import { ChevronIcon } from '../icons'
@@ -11,6 +11,7 @@ type Props = {
 
 export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
   const { appearance, placeholder, items } = props
+  const selectRef = useRef<HTMLDetailsElement>()
 
   const groupClasses = classNames(styles['select__group'])
   const selectedClasses = classNames(styles['select__selected'], styles[appearance])
@@ -26,8 +27,22 @@ export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
     </label>
   ))
 
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (selectRef.current && !selectRef.current.contains(event.target as Node)) {
+        // TODO: Add close logic
+      }
+    }
+
+    document.addEventListener('click', handleClickOutside)
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside)
+    }
+  }, [])
+
   return (
-    <details className={groupClasses}>
+    <details ref={selectRef} className={groupClasses}>
       <summary className={selectedClasses}>
         {placeholder}
         <ChevronIcon className={chevronClasses} />
