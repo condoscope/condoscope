@@ -45,7 +45,7 @@ export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
   ) : null
 
   return (
-    <div className={groupClasses}>
+    <div ref={selectRef} className={groupClasses}>
       <button className={selectedClasses} onClick={handleClick} aria-expanded={open} aria-haspopup="true">
         {placeholder}
         <ChevronIcon className={chevronClasses} />
