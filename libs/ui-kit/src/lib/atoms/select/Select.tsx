@@ -13,6 +13,7 @@ export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
   const groupClasses = classNames(styles['select__group'])
   const selectedClasses = classNames(styles['select__selected'], styles[appearance])
   const chevronClasses = classNames(styles['select__chevron'])
+  const listClasses = classNames(styles['select__list'])
 
   return (
     <details className={groupClasses}>
@@ -20,6 +21,16 @@ export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
         Option 1
         <ChevronIcon className={chevronClasses} />
       </summary>
+      <div className={listClasses}>
+        <label>
+          <input type="radio" />
+          First
+        </label>
+        <label>
+          <input type="radio" />
+          Second
+        </label>
+      </div>
     </details>
   )
 }
