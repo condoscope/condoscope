@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { text } from '@storybook/addon-knobs'
 import { Select } from './Select'
 
 export default {
@@ -8,6 +9,6 @@ export default {
 
 export const regular: FC = () => {
   return (
-    <Select />
+    <Select placeholder={text('Placeholder', '-')} />
   )
 }

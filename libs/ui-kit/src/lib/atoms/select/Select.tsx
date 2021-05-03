@@ -5,10 +5,11 @@ import { ChevronIcon } from '../icons'
 
 type Props = {
   appearance?: 'basic' | 'primary' | 'info' | 'success' | 'warning' | 'danger'
+  placeholder?: string
 }
 
 export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
-  const { appearance } = props
+  const { appearance, placeholder } = props
 
   const groupClasses = classNames(styles['select__group'])
   const selectedClasses = classNames(styles['select__selected'], styles[appearance])
@@ -20,7 +21,7 @@ export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
   return (
     <details className={groupClasses}>
       <summary className={selectedClasses}>
-        Option 1
+        {placeholder}
         <ChevronIcon className={chevronClasses} />
       </summary>
       <div className={listClasses}>
@@ -39,4 +40,5 @@ export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
 
 Select.defaultProps = {
   appearance: 'basic',
+  placeholder: '--',
 }
