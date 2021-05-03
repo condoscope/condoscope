@@ -26,7 +26,7 @@ export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
 
   const groupClasses = classNames(styles['select__group'])
   const selectedClasses = classNames(styles['select__selected'], styles[appearance])
-  const chevronClasses = classNames(styles['select__chevron'])
+  const chevronClasses = classNames(styles['select__chevron'], { [styles['open']]: open })
   const listClasses = classNames(styles['select__list'])
   const optionClasses = classNames(styles['select__option'])
   const optionInputClasses = classNames(styles['select__input'])
@@ -46,7 +46,7 @@ export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
 
   return (
     <div className={groupClasses}>
-      <button className={selectedClasses} onClick={handleClick} aria-expanded={open}>
+      <button className={selectedClasses} onClick={handleClick} aria-expanded={open} aria-haspopup="true">
         {placeholder}
         <ChevronIcon className={chevronClasses} />
       </button>
