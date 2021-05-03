@@ -48,8 +48,10 @@
   &__list {
     border: rem(1) solid $color__basic-400;
     border-radius: rem(4);
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    margin-top: rem(4);
     position: absolute;
     width: 100%;
   }
