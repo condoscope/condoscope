@@ -1,17 +1,28 @@
-import React, { FC, PropsWithChildren, useEffect, useRef } from 'react'
+import React, { FC, PropsWithChildren, useRef, useState } from 'react'
 import classNames from 'classnames'
 import styles from './Select.module.scss'
 import { ChevronIcon } from '../icons'
+import { useClickOutside } from '../../hooks'
 
 type Props = {
   appearance?: 'basic' | 'primary' | 'info' | 'success' | 'warning' | 'danger'
   placeholder?: string
   items?: { key: string; value: string }[]
+  label?: string
 }
 
 export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
   const { appearance, placeholder, items } = props
-  const selectRef = useRef<HTMLDetailsElement>()
+  const selectRef = useRef<HTMLDivElement>()
+  const [open, setOpen] = useState(false)
+
+  const handleClick = (): void => {
+    setOpen((isOpen) => !isOpen)
+  }
+
+  useClickOutside(selectRef, () => {
+    setOpen(false)
+  }, [])
 
   const groupClasses = classNames(styles['select__group'])
   const selectedClasses = classNames(styles['select__selected'], styles[appearance])
@@ -21,41 +32,47 @@ export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
   const optionInputClasses = classNames(styles['select__input'])
 
   const options = items.map((item) => (
-    <label key={item.key} className={optionClasses}>
+    <li key={item.key} className={optionClasses}>
       <input type="radio" className={optionInputClasses} />
       {item.value}
-    </label>
+    </li>
   ))
 
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (selectRef.current && !selectRef.current.contains(event.target as Node)) {
-        // TODO: Add close logic
-      }
-    }
-
-    document.addEventListener('click', handleClickOutside)
-
-    return () => {
-      document.removeEventListener('click', handleClickOutside)
-    }
-  }, [])
+  const list = items.length > 0 && open ? (
+    <ul className={listClasses}>
+      {options}
+    </ul>
+  ) : null
 
   return (
-    <details ref={selectRef} className={groupClasses}>
-      <summary className={selectedClasses}>
+    <div className={groupClasses}>
+      <button className={selectedClasses} onClick={handleClick} aria-expanded={open}>
         {placeholder}
         <ChevronIcon className={chevronClasses} />
-      </summary>
-      <div className={listClasses}>
-        {options}
-      </div>
-    </details>
+      </button>
+      {list}
+    </div>
   )
+
+  // return (
+  //   <div
+  //     ref={selectRef}
+  //     className={groupClasses}
+  //   >
+  //     <summary className={selectedClasses}>
+  //       {placeholder}
+  //       <ChevronIcon className={chevronClasses} />
+  //     </summary>
+  //     <ul className={listClasses}>
+  //       {options}
+  //     </ul>
+  //   </div>
+  // )
 }
 
 Select.defaultProps = {
   appearance: 'basic',
   placeholder: '--',
   items: [],
+  label: '',
 }
