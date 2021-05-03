@@ -1,0 +1,8 @@
+@import './size-mixins.scss';
+@import '../settings/fonts.scss';
+
+@mixin s1-subtitle() {
+  font-family: $font__primary;
+  font-size: rem(15);
+  font-weight: $font-weight__semi-bold;
+}

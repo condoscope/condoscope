@@ -53,4 +53,25 @@
     position: absolute;
     width: 100%;
   }
+
+  &__option {
+    align-items: center;
+    background-color: var(--option-color, transparent);
+    cursor: pointer;
+    display: flex;
+    height: rem(48);
+    padding: 0 rem(16);
+
+    @include s1-subtitle;
+
+    &:hover {
+      --option-color: #{$color__primary-500};
+
+      color: $color__basic-100;
+    }
+  }
+
+  &__input {
+    @extend %visually-hidden;
+  }
 }
