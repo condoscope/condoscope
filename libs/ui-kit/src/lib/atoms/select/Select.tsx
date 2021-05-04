@@ -1,13 +1,14 @@
 import React, { FC, PropsWithChildren, useRef, useState } from 'react'
 import classNames from 'classnames'
 import styles from './Select.module.scss'
+import { SelectOption } from './types'
 import { ChevronIcon } from '../icons'
 import { useClickOutside } from '../../hooks'
 
 type Props = {
   appearance?: 'basic' | 'primary' | 'info' | 'success' | 'warning' | 'danger'
   placeholder?: string
-  items?: { key: string; value: string }[]
+  items?: SelectOption[]
   label?: string
 }
 
@@ -20,6 +21,10 @@ export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
     setOpen((isOpen) => !isOpen)
   }
 
+  const handleSelect = (): void => {
+    setOpen(false)
+  }
+
   useClickOutside(selectRef, () => {
     setOpen(false)
   }, [])
@@ -29,12 +34,13 @@ export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
   const chevronClasses = classNames(styles['select__chevron'], { [styles['open']]: open })
   const listClasses = classNames(styles['select__list'])
   const optionClasses = classNames(styles['select__option'])
-  const optionInputClasses = classNames(styles['select__input'])
+  const itemClasses = classNames(styles['select__item'])
 
   const options = items.map((item) => (
     <li key={item.key} className={optionClasses}>
-      <input type="radio" className={optionInputClasses} />
-      {item.value}
+      <button onClick={handleSelect} className={itemClasses}>
+        {item.value}
+      </button>
     </li>
   ))
 
