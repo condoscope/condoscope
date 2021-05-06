@@ -48,14 +48,11 @@
     display: flex;
     flex-direction: column;
     margin: rem(4) 0 0 0;
-    overflow: hidden;
+    max-height: rem(240);
+    overflow: scroll;
     padding: 0;
     position: absolute;
     width: 100%;
-  }
-
-  &__option {
-    height: rem(48);
   }
 
   &__item {
@@ -64,13 +61,14 @@
     border: none;
     cursor: pointer;
     display: flex;
-    height: 100%;
+    height: rem(48);
     padding: 0 rem(16);
     width: 100%;
 
     @include s1-subtitle;
 
-    &:hover {
+    &:hover,
+    &.selected {
       --option-background-color: #{$color__primary-500};
 
       color: $color__basic-100;

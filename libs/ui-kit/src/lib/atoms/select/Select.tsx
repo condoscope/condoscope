@@ -35,12 +35,11 @@ export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
   const selectedClasses = classNames(styles['select__selected'], styles[appearance])
   const chevronClasses = classNames(styles['select__chevron'], { [styles['open']]: open })
   const listClasses = classNames(styles['select__list'])
-  const optionClasses = classNames(styles['select__option'])
   const itemClasses = classNames(styles['select__item'])
 
   const options = items.map((item) => (
-    <li key={item.key} className={optionClasses}>
-      <button onClick={() => handleSelect(item)} className={itemClasses} role="option" aria-selected="false">
+    <li key={item.key}>
+      <button onClick={() => handleSelect(item)} className={classNames(itemClasses, { [styles['selected']]: selected?.key === item.key })} role="option" aria-selected="false">
         {item.value}
       </button>
     </li>

@@ -9,7 +9,7 @@ export default {
 }
 
 export const regular: FC = () => {
-  const items: SelectOption[] = [{ key: '1', value: 'first' }, { key: '2', value: 'second' }]
+  const items: SelectOption[] = [{ key: '1', value: 'first' }, { key: '2', value: 'second' }, { key: '3', value: 'third' }, { key: '4', value: 'fourth' }, { key: '5', value: 'fifth' }, { key: '6', value: 'sixth' }]
 
   return (
     <Select placeholder={text('Placeholder', '-')} items={items} />
