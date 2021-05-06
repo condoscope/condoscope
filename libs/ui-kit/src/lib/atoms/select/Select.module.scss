@@ -10,7 +10,7 @@
   &__selected {
     align-items: center;
     background-color: $color__basic-200;
-    border: rem(1) solid $color__basic-400;
+    border: rem(1) solid var(--selected-border-color, $color__basic-400);
     border-radius: rem(4);
     box-sizing: border-box;
     color: $color__basic-800;
@@ -23,6 +23,12 @@
     padding: rem(7) rem(35) rem(7) rem(18);
     position: relative;
     width: 100%;
+
+    @include focus-state {
+      --selected-border-color: #{$color__primary-500};
+
+      outline: none;
+    }
   }
 
   &__chevron {

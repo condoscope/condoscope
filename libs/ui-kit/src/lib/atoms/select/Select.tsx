@@ -18,6 +18,8 @@ export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
   const [open, setOpen] = useState(false)
   const [selected, setSelected] = useState<SelectOption>(null)
 
+  const selectedValue = selected?.value || placeholder
+
   const handleClick = (): void => {
     setOpen((isOpen) => !isOpen)
   }
@@ -54,7 +56,7 @@ export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
   return (
     <div ref={selectRef} className={groupClasses}>
       <button className={selectedClasses} onClick={handleClick} aria-expanded={open} aria-haspopup="listbox">
-        {selected?.value || placeholder}
+        {selectedValue}
         <ChevronIcon className={chevronClasses} />
       </button>
       {list}
