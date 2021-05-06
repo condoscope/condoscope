@@ -16,13 +16,15 @@ export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
   const { appearance, placeholder, items } = props
   const selectRef = useRef<HTMLDivElement>()
   const [open, setOpen] = useState(false)
+  const [selected, setSelected] = useState<SelectOption>(null)
 
   const handleClick = (): void => {
     setOpen((isOpen) => !isOpen)
   }
 
-  const handleSelect = (): void => {
+  const handleSelect = (option: SelectOption): void => {
     setOpen(false)
+    setSelected(option)
   }
 
   useClickOutside(selectRef, () => {
@@ -38,7 +40,7 @@ export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
 
   const options = items.map((item) => (
     <li key={item.key} className={optionClasses}>
-      <button onClick={handleSelect} className={itemClasses} role="option" aria-selected="false">
+      <button onClick={() => handleSelect(item)} className={itemClasses} role="option" aria-selected="false">
         {item.value}
       </button>
     </li>
@@ -53,7 +55,7 @@ export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
   return (
     <div ref={selectRef} className={groupClasses}>
       <button className={selectedClasses} onClick={handleClick} aria-expanded={open} aria-haspopup="listbox">
-        {placeholder}
+        {selected?.value || placeholder}
         <ChevronIcon className={chevronClasses} />
       </button>
       {list}
