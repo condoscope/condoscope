@@ -4,7 +4,8 @@ import styles from './Select.module.scss'
 import { SelectValue } from './types'
 import { SelectOption } from './select-option'
 import { ChevronIcon } from '../icons'
-import { useClickOutside } from '../../hooks'
+import { useClickOutside, useKeyHandler } from '../../hooks'
+import { KeyboardKeys } from '../../types'
 
 type Props = {
   appearance?: 'basic' | 'primary' | 'info' | 'success' | 'warning' | 'danger'
@@ -33,6 +34,10 @@ export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
   useClickOutside(selectRef, () => {
     setOpen(false)
   }, [])
+
+  useKeyHandler(selectRef, KeyboardKeys.Escape, () => {
+    setOpen(false)
+  })
 
   const groupClasses = classNames(styles['select__group'])
   const selectedClasses = classNames(styles['select__selected'], styles[appearance])
