@@ -3,16 +3,16 @@ import { KeyboardKeys } from '../types'
 
 export function useKeyHandler<T extends HTMLElement>(ref: MutableRefObject<T>, key: KeyboardKeys, handler: () => void): void {
   useEffect(() => {
-    function keyHandler(event: KeyboardEvent) {
+    function handleKeyUp(event: KeyboardEvent) {
       if (event.key === key) {
         handler()
       }
     }
 
-    ref.current.addEventListener('keyup', keyHandler)
+    ref.current.addEventListener('keyup', handleKeyUp)
 
     return () => {
-      document.removeEventListener('keyup', keyHandler)
+      document.removeEventListener('keyup', handleKeyUp)
     }
   }, [ref, handler, key])
 }
