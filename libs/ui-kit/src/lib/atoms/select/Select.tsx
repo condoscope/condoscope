@@ -1,14 +1,15 @@
 import React, { FC, PropsWithChildren, useRef, useState } from 'react'
 import classNames from 'classnames'
 import styles from './Select.module.scss'
-import { SelectOption } from './types'
+import { SelectValue } from './types'
+import { SelectOption } from './select-option'
 import { ChevronIcon } from '../icons'
 import { useClickOutside } from '../../hooks'
 
 type Props = {
   appearance?: 'basic' | 'primary' | 'info' | 'success' | 'warning' | 'danger'
   placeholder?: string
-  items?: SelectOption[]
+  items?: SelectValue[]
   label?: string
 }
 
@@ -16,7 +17,7 @@ export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
   const { appearance, placeholder, items } = props
   const selectRef = useRef<HTMLDivElement>()
   const [open, setOpen] = useState(false)
-  const [selected, setSelected] = useState<SelectOption>(null)
+  const [selected, setSelected] = useState<SelectValue>(null)
 
   const selectedValue = selected?.value || placeholder
 
@@ -24,7 +25,7 @@ export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
     setOpen((isOpen) => !isOpen)
   }
 
-  const handleSelect = (option: SelectOption): void => {
+  const handleSelect = (option: SelectValue): void => {
     setOpen(false)
     setSelected(option)
   }
@@ -37,15 +38,8 @@ export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
   const selectedClasses = classNames(styles['select__selected'], styles[appearance])
   const chevronClasses = classNames(styles['select__chevron'], { [styles['open']]: open })
   const listClasses = classNames(styles['select__list'])
-  const itemClasses = classNames(styles['select__item'])
 
-  const options = items.map((item) => (
-    <li key={item.key}>
-      <button onClick={() => handleSelect(item)} className={classNames(itemClasses, { [styles['selected']]: selected?.key === item.key })} role="option" aria-selected="false">
-        {item.value}
-      </button>
-    </li>
-  ))
+  const options = items.map((item) => <SelectOption key={item.key} option={item} selected={selected} onSelect={handleSelect} />)
 
   const list = items.length > 0 && open ? (
     <ul className={listClasses}>

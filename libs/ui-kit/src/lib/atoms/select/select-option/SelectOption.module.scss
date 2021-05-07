@@ -1,0 +1,25 @@
+@import '__design/settings';
+@import '__design/tools';
+
+.option {
+
+  &__item {
+    align-items: center;
+    background-color: var(--option-background-color, transparent);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    height: rem(48);
+    padding: 0 rem(16);
+    width: 100%;
+
+    @include s1-subtitle;
+
+    &:hover,
+    &.selected {
+      --option-background-color: #{$color__primary-500};
+
+      color: $color__basic-100;
+    }
+  }
+}
