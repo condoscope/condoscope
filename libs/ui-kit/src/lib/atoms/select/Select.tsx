@@ -33,7 +33,7 @@ export const Select: FC<Props> = (props: PropsWithChildren<Props>) => {
 
   useClickOutside(selectRef, () => {
     setOpen(false)
-  }, [])
+  })
 
   useKeyHandler(selectRef, KeyboardKeys.Escape, () => {
     setOpen(false)
