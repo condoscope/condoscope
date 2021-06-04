@@ -93,6 +93,12 @@
 
     @include property-animation(('background-color', 'border-color'));
 
+    @include focus-state {
+      background-color: #{$color__basic-100};
+      border-color: var(--focus-border-color);
+      outline: none;
+    }
+
     &::placeholder {
       color: #{$color__basic-600};
       font-weight: #{$font-weight__regular};
@@ -105,12 +111,6 @@
       &::placeholder {
         color: transparentize($color__basic-600, 0.52);
       }
-    }
-
-    &:focus {
-      background-color: #{$color__basic-100};
-      border-color: var(--focus-border-color);
-      outline: none;
     }
 
     &.small {
