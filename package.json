@@ -27,7 +27,8 @@
     "prepare": "husky install",
     "ui-kit:storybook:start": "nx run ui-kit:storybook",
     "ui-kit:storybook:build": "nx run ui-kit:build-storybook",
-    "ui-kit:lint": "nx run ui-kit:lint"
+    "ui-kit:lint": "nx run ui-kit:lint",
+    "condoscope:start": "nx serve condoscope"
   },
   "private": true,
   "dependencies": {

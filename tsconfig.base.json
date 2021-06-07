@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@condoscope/ui-kit": ["libs/ui-kit/src/index.ts"]
+      "@condoscope/ui-kit": ["libs/ui-kit/src/index.ts"],
+      "@condoscope/condoscope/*": ["apps/condoscope/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

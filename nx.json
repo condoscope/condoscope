@@ -1,9 +1,14 @@
 {
   "implicitDependencies": {
-    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     ".eslintrc.json": "*"
   },
-  "affected": { "defaultBase": "master" },
+  "affected": {
+    "defaultBase": "master"
+  },
   "npmScope": "condoscope",
   "tasksRunnerOptions": {
     "default": {
@@ -20,7 +25,19 @@
     }
   },
   "projects": {
-    "ui-kit": { "tags": [] },
-    "ui-kit-e2e": { "tags": [], "implicitDependencies": ["ui-kit"] }
+    "ui-kit": {
+      "tags": []
+    },
+    "ui-kit-e2e": {
+      "tags": [],
+      "implicitDependencies": ["ui-kit"]
+    },
+    "condoscope": {
+      "tags": []
+    },
+    "condoscope-e2e": {
+      "tags": [],
+      "implicitDependencies": ["condoscope"]
+    }
   }
 }
