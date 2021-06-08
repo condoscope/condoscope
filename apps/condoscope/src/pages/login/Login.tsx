@@ -7,10 +7,19 @@ export const Login: FC = () => {
       <h1>
         Log In
       </h1>
+      <span>
+        Hello! Log in with your e-mail
+      </span>
 
-      <div>
-        <Input />
-      </div>
+      <form>
+        <Input placeholder="E-mail address" type="email">
+          Email address
+        </Input>
+
+        <Input placeholder="Password" type="password">
+          Password
+        </Input>
+      </form>
     </section>
   )
 }

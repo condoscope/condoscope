@@ -6,7 +6,7 @@ import { noop } from '../../utils'
 type Props = {
   disabled?: boolean
   appearance?: 'basic' | 'primary' | 'info' | 'success' | 'warning' | 'danger'
-  type?: 'text' | 'email' | 'number'
+  type?: 'text' | 'email' | 'number' | 'password'
   readonly?: boolean
   icon?: React.ReactNode
   caption?: React.ReactNode

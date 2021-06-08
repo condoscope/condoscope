@@ -1,4 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+@import '__design/settings';
+
 body {
+  font-family: $font__primary;
   margin: 0;
 }
