@@ -2,14 +2,28 @@
 @import '__design/tools';
 
 .login {
-  padding: rem(40);
+  // padding: rem(40);
 
   &__section {
     background-color: $color__basic-100;
+    display: grid;
     padding: rem(16) rem(24);
+    row-gap: rem(12);
   }
 
-  &__title {
-    margin: 0;
+  &__title,
+  &__label {
+    text-align: center;
+  }
+
+  &__label {
+    font-weight: $font-weight__light;
+  }
+
+  &__form {
+    display: grid;
+    max-width: rem(560);
+    padding-top: rem(20);
+    row-gap: rem(32);
   }
 }

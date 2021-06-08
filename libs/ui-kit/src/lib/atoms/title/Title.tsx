@@ -1,16 +1,17 @@
 import { FC, PropsWithChildren } from 'react'
 import classNames from 'classnames'
 import styles from './Title.module.scss'
+import { Styled } from '../../types'
 
 type Props = {
   size?: 1 | 2 | 3 | 4 | 5 | 6
   text?: string
-}
+} & Styled
 
 export const Title: FC<Props> = (props: PropsWithChildren<Props>) => {
-  const { size, text, children } = props
+  const { size, text, className, children } = props
   const content = text || children
-  const titleClasses = classNames(styles['title'])
+  const titleClasses = classNames(styles['title'], className)
 
   switch (size) {
 

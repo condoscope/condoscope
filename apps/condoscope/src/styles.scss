@@ -1,7 +1,9 @@
 @import '__design/settings';
+@import '__design/tools';
 
 body {
   background-color: $color__basic-300;
   font-family: $font__primary;
   margin: 0;
+  min-width: rem(320);
 }
