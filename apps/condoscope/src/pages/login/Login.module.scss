@@ -1,0 +1,15 @@
+@import '__design/settings';
+@import '__design/tools';
+
+.login {
+  padding: rem(40);
+
+  &__section {
+    background-color: $color__basic-100;
+    padding: rem(16) rem(24);
+  }
+
+  &__title {
+    margin: 0;
+  }
+}
