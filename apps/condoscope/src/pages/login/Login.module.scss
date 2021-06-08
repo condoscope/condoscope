@@ -2,7 +2,9 @@
 @import '__design/tools';
 
 .login {
-  // padding: rem(40);
+  @include medium-screen {
+    padding: rem(40);
+  }
 
   &__section {
     background-color: $color__basic-100;
@@ -22,7 +24,7 @@
 
   &__form {
     display: grid;
-    max-width: rem(560);
+    justify-self: center;
     padding-top: rem(20);
     row-gap: rem(32);
   }
