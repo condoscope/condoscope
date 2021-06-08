@@ -1,19 +1,16 @@
 import { FC } from 'react'
-import { Input } from '@condoscope/ui-kit'
+import { Input, Title } from '@condoscope/ui-kit'
 import classNames from 'classnames'
 import styles from './Login.module.scss'
 
 export const Login: FC = () => {
   const pageClasses = classNames(styles['login'])
   const sectionClasses = classNames(styles['login__section'])
-  const titleClasses = classNames(styles['login__title'])
 
   return (
     <main className={pageClasses}>
       <section className={sectionClasses}>
-        <h1 className={titleClasses}>
-          Login
-        </h1>
+        <Title size={6} text="Login" />
         <span>
           Hello! Log in with your e-mail
         </span>
