@@ -5,7 +5,7 @@ export const Login: FC = () => {
   return (
     <section>
       <h1>
-        Log In
+        Login
       </h1>
       <span>
         Hello! Log in with your e-mail
