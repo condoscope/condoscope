@@ -1,12 +1,13 @@
 import { FC } from 'react'
-import { BrowserRouter } from 'react-router-dom'
-import { Footer, Header } from '@condoscope/condoscope/common'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { Login } from '../pages/login'
 
 export const Root: FC = () => {
   return (
     <BrowserRouter>
-      <Header />
-      <Footer />
+      <Switch>
+        <Route path="/login" component={Login} />
+      </Switch>
     </BrowserRouter>
   )
 }

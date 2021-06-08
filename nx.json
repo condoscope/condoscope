@@ -33,7 +33,8 @@
       "implicitDependencies": ["ui-kit"]
     },
     "condoscope": {
-      "tags": []
+      "tags": [],
+      "implicitDependencies": ["ui-kit"]
     },
     "condoscope-e2e": {
       "tags": [],
