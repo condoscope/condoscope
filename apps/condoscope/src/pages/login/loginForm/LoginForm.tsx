@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Input } from '@condoscope/ui-kit'
+import { Button, Checkbox, Input } from '@condoscope/ui-kit'
 import classNames from 'classnames'
 import styles from './LoginForm.module.scss'
 
@@ -15,6 +15,14 @@ export const LoginForm: FC = () => {
       <Input placeholder="Password" type="password">
         Password
       </Input>
+
+      <Checkbox>
+        Remember me
+      </Checkbox>
+
+      <Button>
+        Log In
+      </Button>
     </form>
   )
 }
