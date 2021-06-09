@@ -25,7 +25,9 @@
   &__form {
     display: grid;
     justify-self: center;
+    max-width: rem(560);
     padding-top: rem(20);
     row-gap: rem(32);
+    width: 100%;
   }
 }
