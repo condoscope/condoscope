@@ -21,4 +21,10 @@
     height: rem(20);
     width: rem(20);
   }
+
+  &__register {
+    column-gap: rem(5);
+    display: grid;
+    grid-template-columns: auto auto;
+  }
 }
