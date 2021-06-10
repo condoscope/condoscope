@@ -1,3 +1,4 @@
+@import '__design/settings';
 @import '__design/tools';
 
 .login-options {
@@ -7,5 +8,17 @@
 
   &__title {
     text-align: center;
+  }
+
+  &__list {
+    color: $color__basic-600;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__item {
+    cursor: pointer;
+    height: rem(20);
+    width: rem(20);
   }
 }

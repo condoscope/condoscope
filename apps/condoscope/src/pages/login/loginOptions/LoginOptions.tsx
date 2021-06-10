@@ -7,6 +7,8 @@ import styles from './LoginOptions.module.scss'
 export const LoginOptions: FC = () => {
   const optionsClasses = classNames(styles['login-options'])
   const titleClasses = classNames(styles['login-options__title'])
+  const optionsListClasses = classNames(styles['login-options__list'])
+  const optionsItemClasses = classNames(styles['login-options__item'])
   const registerWrapperClasses = classNames(styles['login-options__register'])
 
   return (
@@ -15,8 +17,10 @@ export const LoginOptions: FC = () => {
         or enter with:
       </span>
 
-      <div>
-        <FacebookIcon />
+      <div className={optionsListClasses}>
+        <div className={optionsItemClasses}>
+          <FacebookIcon />
+        </div>
       </div>
 
       <div className={registerWrapperClasses}>
