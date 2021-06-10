@@ -20,7 +20,7 @@ export const LoginForm: FC = () => {
         Remember me
       </Checkbox>
 
-      <Button>
+      <Button size="large">
         Log In
       </Button>
     </form>

@@ -3,6 +3,7 @@ import { Title } from '@condoscope/ui-kit'
 import classNames from 'classnames'
 import { LoginForm } from './loginForm'
 import styles from './Login.module.scss'
+import { LoginOptions } from './loginOptions'
 
 export const Login: FC = () => {
   const pageClasses = classNames(styles['login'])
@@ -19,6 +20,7 @@ export const Login: FC = () => {
         </span>
 
         <LoginForm />
+        <LoginOptions />
       </section>
     </main>
   )

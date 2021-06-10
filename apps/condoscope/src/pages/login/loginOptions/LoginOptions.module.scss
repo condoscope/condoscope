@@ -1,9 +1,11 @@
 @import '__design/tools';
 
-.login-form {
+.login-options {
   display: grid;
-  max-width: rem(560);
   padding-top: rem(20);
   row-gap: rem(32);
-  width: 100%;
+
+  &__title {
+    text-align: center;
+  }
 }
