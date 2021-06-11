@@ -12,7 +12,9 @@
 
   &__list {
     color: $color__basic-600;
-    display: flex;
+    column-gap: rem(32);
+    display: grid;
+    grid-template-columns: auto auto;
     justify-content: center;
   }
 

@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
-import { FacebookIcon } from '@condoscope/ui-kit'
+import { FacebookIcon, GoogleIcon } from '@condoscope/ui-kit'
 import styles from './LoginOptions.module.scss'
 
 export const LoginOptions: FC = () => {
@@ -20,6 +20,9 @@ export const LoginOptions: FC = () => {
       <div className={optionsListClasses}>
         <div className={optionsItemClasses}>
           <FacebookIcon />
+        </div>
+        <div className={optionsItemClasses}>
+          <GoogleIcon />
         </div>
       </div>
 

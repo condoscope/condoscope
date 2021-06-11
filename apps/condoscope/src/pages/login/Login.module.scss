@@ -8,12 +8,15 @@
 
   &__section {
     background-color: $color__basic-100;
-    border: rem(1) solid $color__basic-400;
-    border-radius: rem(4);
     display: grid;
     justify-items: center;
     padding: rem(16) rem(24);
     row-gap: rem(12);
+
+    @include medium-screen {
+      border: rem(1) solid $color__basic-400;
+      border-radius: rem(4);
+    }
   }
 
   &__label {
